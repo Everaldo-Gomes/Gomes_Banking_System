@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_screen</class>
+ <widget class="QWidget" name="main_screen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>13</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Gomes Bank System</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>10</y>
+     <width>501</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="GBS">
+       <attribute name="title">
+        <string>Tab 1</string>
+       </attribute>
+       <widget class="QPushButton" name="logoutbutton">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>15</y>
+          <width>91</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: red;
+border-radius: 10px;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>Logout</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="search">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <widget class="QPushButton" name="search_customer_button">
+        <property name="geometry">
+         <rect>
+          <x>104</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Customer</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="search_staff_button">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Staff</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="search_account_button">
+        <property name="geometry">
+         <rect>
+          <x>194</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black
+</string>
+        </property>
+        <property name="text">
+         <string>Account</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Staff">
+       <attribute name="title">
+        <string>Tab 2</string>
+       </attribute>
+       <widget class="QPushButton" name="add_staff_button">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="block_staff_button">
+        <property name="geometry">
+         <rect>
+          <x>104</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Block</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="unlock_staff_button">
+        <property name="geometry">
+         <rect>
+          <x>194</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Unlock</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="change_info_staff_button">
+        <property name="geometry">
+         <rect>
+          <x>285</x>
+          <y>15</y>
+          <width>90</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Change info</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Customer_account">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <widget class="QPushButton" name="add_customer_account_button">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="unlock_customer_account_button">
+        <property name="geometry">
+         <rect>
+          <x>194</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Unlock</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="change_info_customer_account_button">
+        <property name="geometry">
+         <rect>
+          <x>285</x>
+          <y>15</y>
+          <width>90</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Change info</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="block_customer_account_button">
+        <property name="geometry">
+         <rect>
+          <x>104</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Block</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="money">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <widget class="QPushButton" name="check_balance_button">
+        <property name="geometry">
+         <rect>
+          <x>14</x>
+          <y>15</y>
+          <width>100</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Check balance</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="deposit_button">
+        <property name="geometry">
+         <rect>
+          <x>121</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Deposit</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="withdrawal_button">
+        <property name="geometry">
+         <rect>
+          <x>211</x>
+          <y>15</y>
+          <width>90</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Withdrawal</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="loan_button">
+        <property name="geometry">
+         <rect>
+          <x>396</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Loan</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="transfer_button">
+        <property name="geometry">
+         <rect>
+          <x>308</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Transfer</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Help">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <widget class="QPushButton" name="support_button">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Support</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="about_button">
+        <property name="geometry">
+         <rect>
+          <x>104</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>About</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="connected_staff_name_text">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>471</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Staff</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="connected_staff_id_text">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>470</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ID </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="connected_staff_name_value">
+   <property name="geometry">
+    <rect>
+     <x>51</x>
+     <y>473</y>
+     <width>291</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="connected_staff_id_value">
+   <property name="geometry">
+    <rect>
+     <x>395</x>
+     <y>473</y>
+     <width>120</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="connected_staff_sector_text">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>471</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Sector</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="connected_staff_sector_value">
+   <property name="geometry">
+    <rect>
+     <x>599</x>
+     <y>471</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="logo_GBS">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>245</x>
+     <y>180</y>
+     <width>291</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>150</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>GBS</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="logo_full_name">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>165</x>
+     <y>330</y>
+     <width>461</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>50</pointsize>
+     <italic>false</italic>
+    </font>
+   </property>
+   <property name="text">
+    <string>Gomes Bank System</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

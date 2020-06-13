@@ -12,3 +12,13 @@ create table staff (
       created_in   date 	not null,
       constraint pk_id primary key(id)
 );
+
+--support table
+create table support (
+       id	     serial,
+       staff_id      integer	  not null,
+       opening_day   date	  not null,	
+       message	     varchar(501) not null,
+       constraint pk_support_id primary key(id),
+       constraint fk_staff_id foreign key(staff_id) references staff(id)
+);

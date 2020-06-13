@@ -6,12 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>424</width>
+    <width>400</width>
     <height>386</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>386</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>386</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Search Staff</string>
   </property>
   <widget class="QPushButton" name="search_button">
    <property name="geometry">
@@ -35,14 +47,14 @@
    <property name="geometry">
     <rect>
      <x>47</x>
-     <y>21</y>
+     <y>22</y>
      <width>44</width>
      <height>12</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>13</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="frameShadow">
@@ -61,6 +73,11 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
    <property name="maxLength">
     <number>11</number>
    </property>
@@ -71,8 +88,8 @@
   <widget class="QLabel" name="error_message">
    <property name="geometry">
     <rect>
-     <x>101</x>
-     <y>58</y>
+     <x>80</x>
+     <y>52</y>
      <width>211</width>
      <height>20</height>
     </rect>
@@ -92,10 +109,10 @@
   <widget class="QLabel" name="name_text">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>112</y>
+     <x>19</x>
+     <y>94</y>
      <width>45</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -107,16 +124,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Name</string>
+    <string notr="true">Name:</string>
    </property>
   </widget>
   <widget class="QLabel" name="cpf_text_2">
    <property name="geometry">
     <rect>
-     <x>19</x>
-     <y>137</y>
+     <x>18</x>
+     <y>121</y>
      <width>45</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -128,16 +145,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">CPF</string>
+    <string notr="true">CPF:</string>
    </property>
   </widget>
   <widget class="QLabel" name="phone_text">
    <property name="geometry">
     <rect>
-     <x>18</x>
-     <y>187</y>
+     <x>17</x>
+     <y>169</y>
      <width>45</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -149,16 +166,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Phone</string>
+    <string notr="true">Phone:</string>
    </property>
   </widget>
   <widget class="QLabel" name="address_text">
    <property name="geometry">
     <rect>
-     <x>19</x>
-     <y>161</y>
+     <x>18</x>
+     <y>144</y>
      <width>51</width>
-     <height>16</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="font">
@@ -170,16 +187,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Address</string>
+    <string notr="true">Address:</string>
    </property>
   </widget>
   <widget class="QLabel" name="blocked_times_text">
    <property name="geometry">
     <rect>
-     <x>18</x>
-     <y>282</y>
+     <x>17</x>
+     <y>266</y>
      <width>101</width>
-     <height>16</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="font">
@@ -191,16 +208,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Blocked times</string>
+    <string notr="true">Blocked times:</string>
    </property>
   </widget>
   <widget class="QLabel" name="sector_text">
    <property name="geometry">
     <rect>
-     <x>18</x>
-     <y>236</y>
+     <x>17</x>
+     <y>220</y>
      <width>45</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -212,16 +229,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Sector</string>
+    <string notr="true">Sector:</string>
    </property>
   </widget>
   <widget class="QLabel" name="email_text">
    <property name="geometry">
     <rect>
-     <x>19</x>
-     <y>211</y>
+     <x>18</x>
+     <y>194</y>
      <width>45</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -233,16 +250,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Email</string>
+    <string notr="true">Email:</string>
    </property>
   </widget>
   <widget class="QLabel" name="employee_since_text">
    <property name="geometry">
     <rect>
-     <x>18</x>
-     <y>259</y>
+     <x>17</x>
+     <y>241</y>
      <width>101</width>
-     <height>16</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="font">
@@ -254,16 +271,16 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Employee since</string>
+    <string notr="true">Employee since:</string>
    </property>
   </widget>
   <widget class="QLabel" name="name_output">
    <property name="geometry">
     <rect>
-     <x>87</x>
-     <y>107</y>
-     <width>310</width>
-     <height>21</height>
+     <x>119</x>
+     <y>89</y>
+     <width>261</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -278,10 +295,10 @@
   <widget class="QLabel" name="cpf_output">
    <property name="geometry">
     <rect>
-     <x>87</x>
-     <y>131</y>
-     <width>310</width>
-     <height>21</height>
+     <x>119</x>
+     <y>115</y>
+     <width>261</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -296,10 +313,10 @@
   <widget class="QLabel" name="address_output">
    <property name="geometry">
     <rect>
-     <x>88</x>
-     <y>157</y>
-     <width>310</width>
-     <height>21</height>
+     <x>120</x>
+     <y>140</y>
+     <width>261</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -314,10 +331,10 @@
   <widget class="QLabel" name="phone_output">
    <property name="geometry">
     <rect>
-     <x>88</x>
-     <y>183</y>
-     <width>310</width>
-     <height>21</height>
+     <x>120</x>
+     <y>165</y>
+     <width>261</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -332,10 +349,10 @@
   <widget class="QLabel" name="email_output">
    <property name="geometry">
     <rect>
-     <x>88</x>
-     <y>206</y>
-     <width>310</width>
-     <height>21</height>
+     <x>120</x>
+     <y>189</y>
+     <width>261</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -350,10 +367,10 @@
   <widget class="QLabel" name="sector_output">
    <property name="geometry">
     <rect>
-     <x>88</x>
-     <y>230</y>
-     <width>310</width>
-     <height>21</height>
+     <x>120</x>
+     <y>214</y>
+     <width>261</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -368,10 +385,10 @@
   <widget class="QLabel" name="employee_since_output">
    <property name="geometry">
     <rect>
-     <x>126</x>
-     <y>257</y>
-     <width>270</width>
-     <height>21</height>
+     <x>119</x>
+     <y>239</y>
+     <width>141</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -386,10 +403,10 @@
   <widget class="QLabel" name="blocked_times_output">
    <property name="geometry">
     <rect>
-     <x>127</x>
-     <y>280</y>
-     <width>270</width>
-     <height>21</height>
+     <x>119</x>
+     <y>264</y>
+     <width>141</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -404,10 +421,10 @@
   <widget class="QPushButton" name="close_button">
    <property name="geometry">
     <rect>
-     <x>95</x>
-     <y>340</y>
+     <x>80</x>
+     <y>336</y>
      <width>101</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -422,10 +439,10 @@
   <widget class="QPushButton" name="search_again_button">
    <property name="geometry">
     <rect>
-     <x>221</x>
-     <y>340</y>
+     <x>218</x>
+     <y>336</y>
      <width>110</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -438,6 +455,12 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>cpf_field_input</tabstop>
+  <tabstop>search_button</tabstop>
+  <tabstop>close_button</tabstop>
+  <tabstop>search_again_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

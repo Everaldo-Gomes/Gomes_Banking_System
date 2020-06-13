@@ -1,10 +1,6 @@
 #include "main_screen.h"
 #include "ui_main_screen.h"
 
-#include "login.h"
-#include "search_staff.h"
-#include "add_staff.h"
-
 main_screen::main_screen(QWidget *parent) : QWidget(parent), ui(new Ui::main_screen) {
     ui->setupUi(this);
 
@@ -41,15 +37,26 @@ void main_screen::on_search_staff_button_clicked() {
     sf->show();
 }
 
+//open search customer window
+void main_screen::on_search_customer_button_clicked() {
+    search_customer *sc = new search_customer();
+    sc->show();
+}
 
+//open search account window
+void main_screen::on_search_account_button_clicked() {
+    search_account *sa = new search_account();
+    sa->show();
+}
 
+//open about window
+void main_screen::on_about_button_clicked() {
+    about *ab = new about();
+    ab->show();
+}
 
-
-
-
-
-
-
-
-
-
+//open support window
+void main_screen::on_support_button_clicked() {
+    support *s = new support();
+    s->show();
+}

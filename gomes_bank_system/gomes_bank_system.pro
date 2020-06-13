@@ -17,24 +17,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    about.cpp \
     add_staff.cpp \
     main.cpp \
     login.cpp \
     main_screen.cpp \
-    search_staff.cpp
+    search_account.cpp \
+    search_customer.cpp \
+    search_staff.cpp \
+    support.cpp
 
 HEADERS += \
+    about.h \
     add_staff.h \
     global_variables.h \
     login.h \
     main_screen.h \
-    search_staff.h
+    search_account.h \
+    search_customer.h \
+    search_staff.h \
+    support.h
 
 FORMS += \
+    about.ui \
     add_staff.ui \
     login.ui \
     main_screen.ui \
-    search_staff.ui
+    search_account.ui \
+    search_customer.ui \
+    search_staff.ui \
+    support.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

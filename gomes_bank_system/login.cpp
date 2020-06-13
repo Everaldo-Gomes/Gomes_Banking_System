@@ -1,16 +1,6 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include "main_screen.h"
-#include "ui_main_screen.h"
-
-#include <QCoreApplication>
-#include <QSqlDatabase>
-#include <QtSql>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-
 QString connected_id;
 QString connected_staff;
 QString connected_sector;
@@ -18,6 +8,7 @@ QString connected_sector;
 Login::Login(QWidget *parent) : QMainWindow(parent), ui(new Ui::Login) {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);  //remove tittle bar || making a frameless window
+    ui->cpf_field->setValidator(new QDoubleValidator(0, 999999999999, 2, this)); //allow only numbers. need to be double becuase the range is too long
 }
 
 Login::~Login() {

@@ -2,7 +2,18 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+
+#include <QCoreApplication>
+#include <QSqlDatabase>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QIntValidator>
+#include <QDebug>
+
 #include "main_screen.h"
+#include "ui_main_screen.h"
 #include <global_variables.h>
 
 QT_BEGIN_NAMESPACE

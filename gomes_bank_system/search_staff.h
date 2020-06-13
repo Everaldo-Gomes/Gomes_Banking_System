@@ -2,6 +2,7 @@
 #define SEARCH_STAFF_H
 
 #include <QWidget>
+#include <QIntValidator>
 
 namespace Ui {
 class search_staff;

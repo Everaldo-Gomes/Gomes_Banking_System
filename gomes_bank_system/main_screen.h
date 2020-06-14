@@ -11,6 +11,7 @@
 #include "search_customer.h"
 #include "search_account.h"
 #include "add_staff.h"
+#include "block_staff.h"
 #include "support.h"
 #include "about.h"
 
@@ -38,6 +39,10 @@ private slots:
     void on_about_button_clicked();
 
     void on_support_button_clicked();
+
+    void on_add_staff_button_clicked();
+
+    void on_block_staff_button_clicked();
 
 private:
     Ui::main_screen *ui;

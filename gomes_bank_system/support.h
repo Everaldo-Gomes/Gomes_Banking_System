@@ -10,8 +10,11 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QIntValidator>
-#include "global_variables.h"
+#include <QDateTime>
+#include <QMessageBox>
 #include <QDebug>
+#include "global_variables.h"
+
 
 namespace Ui {
 class support;

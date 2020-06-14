@@ -17,7 +17,7 @@ void support::on_support_message_textChanged() {
 
     int max_length = 500;
 
-    //if reach the character limit delete the following letters
+    //if reach the character limit delete the following characters
     if(ui->support_message->toPlainText().length() > max_length){
         ui->support_message->textCursor().deletePreviousChar();
     }
@@ -26,6 +26,8 @@ void support::on_support_message_textChanged() {
     int actual_len = ui->support_message->toPlainText().length();
     int len_to_show = max_length - actual_len;
     ui->character_limit->setText(QString::number(len_to_show));  //convert to string
+
+    ui->error_message->setText("");  //clean the error message
 }
 
 //close button
@@ -36,26 +38,50 @@ void support::on_cancel_button_clicked() {
 //send button
 void support::on_send_button_clicked() {
 
-    QString report_message = ui->support_message->toPlainText();
+    QString report_message = ui->support_message->toPlainText(); //get what was typed
 
     if(report_message == "") { ui->error_message->setText("Type some message"); }
     else {
-        //connect to the database to check information
-        QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
 
-        db.setHostName("localhost");
-        db.setDatabaseName("gomes_bank_system");
-        db.setUserName("main");
-        db.setPassword("gomes");  //actual passord
-        db.open();
+        //ask for a confimation before sending the message
+        QMessageBox::StandardButton confirmation;
+        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
+                                      QMessageBox::Yes | QMessageBox::No);
 
-        QSqlQuery insert_message;
-        int var = connected_id.toInt();
+        if(confirmation == QMessageBox::No) { /*do nothing*/ }
+        else {
+            //connect to the database to check information
+            QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
 
-        if(db.open()) {
-           insert_message.exec("insert into support (staff_id, opening_day, message) values (f,'2020-11-11', '"+report_message+"');");
+            db.setHostName("localhost");
+            db.setDatabaseName("gomes_bank_system");
+            db.setUserName("main");
+            db.setPassword("gomes");  //actual passord
+            db.open();
+
+            //store information
+            if(db.open()) {
+                QSqlQuery insert_message_query;
+                insert_message_query.prepare("INSERT INTO support (staff_id, opening_day, message)"
+                                             "VALUES (?,?,?)");
+
+                insert_message_query.addBindValue(connected_id.toInt());
+                insert_message_query.addBindValue(QDateTime::currentDateTime());  //show all time'
+                insert_message_query.addBindValue(report_message);
+                insert_message_query.exec();
+
+                //show a message that the content has been sent
+                QMessageBox::information(this,"About your message", "Your meessage has been sent");
+                ui->support_message->setText("");
+            }
+            else { ui->error_message->setText("You're not connected"); }
+            db.close();
         }
-        else { ui->error_message->setText("You're not connected"); }
-        db.close();
     }
 }
+
+/*
+QString current_date = QDate::currentDate().toString("yyyy.MM.dd");
+QString current_time = QTime::currentTime().toString("hh.mm.ss");
+insert_message_query.addBindValue(QDateTime::fromString(current_date,"yyyy-mm-dd"));  use only year-month-day
+*/

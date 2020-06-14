@@ -54,7 +54,7 @@
        <cursorShape>ArrowCursor</cursorShape>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="GBS">
        <attribute name="title">
@@ -732,6 +732,28 @@ color: black</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>logoutbutton</tabstop>
+  <tabstop>search_staff_button</tabstop>
+  <tabstop>search_customer_button</tabstop>
+  <tabstop>search_account_button</tabstop>
+  <tabstop>add_staff_button</tabstop>
+  <tabstop>block_staff_button</tabstop>
+  <tabstop>unlock_staff_button</tabstop>
+  <tabstop>change_info_staff_button</tabstop>
+  <tabstop>add_customer_account_button</tabstop>
+  <tabstop>block_customer_account_button</tabstop>
+  <tabstop>unlock_customer_account_button</tabstop>
+  <tabstop>change_info_customer_account_button</tabstop>
+  <tabstop>check_balance_button</tabstop>
+  <tabstop>deposit_button</tabstop>
+  <tabstop>withdrawal_button</tabstop>
+  <tabstop>transfer_button</tabstop>
+  <tabstop>loan_button</tabstop>
+  <tabstop>support_button</tabstop>
+  <tabstop>about_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

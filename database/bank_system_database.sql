@@ -9,16 +9,29 @@ create table staff (
       email 	   varchar(50) 	not null,
       sector 	   varchar(10) 	not null,
       password 	   varchar(10) 	not null,
-      created_in   date 	not null,
-      constraint pk_id primary key(id)
+      created_in   timestamp 	not null,
+      by_staff	   integer	not null,
+      constraint pk_id primary key(id),
 );
 
 --support table
 create table support (
        id	     serial,
        staff_id      integer	  not null,
-       opening_day   date	  not null,	
+       opening_day   timestamp	  not null,	
        message	     varchar(501) not null,
        constraint pk_support_id primary key(id),
        constraint fk_staff_id foreign key(staff_id) references staff(id)
+);
+
+--blocked staff table
+create table blocked_staff (
+       id			serial,
+       responsable_staff_id	integer   not null,
+       blocked_staff_id		integer   not null,
+       blocking_day		timestamp not null,
+       reason			varchar(255),
+       constraint pk_blocked_id primary key(id),
+       constraint fk_responsable_staff_id foreign key(responsable_staff_id) references staff(id),
+       constraint fk_blocked_staff_id foreign key (blocked_staff_id) references staff(id)
 );

@@ -64,6 +64,7 @@ void Login::on_login_button_clicked() {
                 QString found_sector = check_login.value(7).toString();
                 QString found_pw     = check_login.value(8).toString();
 
+                //global variables
                 connected_id     = found_id;
                 connected_staff  = found_name;
                 connected_sector = found_sector;
@@ -78,7 +79,7 @@ void Login::on_login_button_clicked() {
                     break; //stop searching into the database
                 }
             }
-            //if CPF or password are invalid
+            //if CPF and/or password are invalid
             if(not_found) { ui->error_message->setText("Invalid informatioin"); }
         }
         else { ui->error_message->setText("You're not connected"); }

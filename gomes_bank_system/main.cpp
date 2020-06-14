@@ -7,7 +7,7 @@
 #include <QApplication>
 
 int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
+    QApplication system(argc, argv);
     Login login_obj;
     //login_obj.show();
 
@@ -24,5 +24,5 @@ int main(int argc, char *argv[]) {
     //search_account *sa = new search_account();
     //sa->show();
 
-    return a.exec();
+    return system.exec();
 }

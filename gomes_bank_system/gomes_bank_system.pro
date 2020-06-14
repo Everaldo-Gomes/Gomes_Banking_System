@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     about.cpp \
     add_staff.cpp \
+    block_staff.cpp \
     main.cpp \
     login.cpp \
     main_screen.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     about.h \
     add_staff.h \
+    block_staff.h \
     global_variables.h \
     login.h \
     main_screen.h \
@@ -41,6 +43,7 @@ HEADERS += \
 FORMS += \
     about.ui \
     add_staff.ui \
+    block_staff.ui \
     login.ui \
     main_screen.ui \
     search_account.ui \

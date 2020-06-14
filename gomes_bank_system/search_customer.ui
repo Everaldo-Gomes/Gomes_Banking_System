@@ -45,6 +45,9 @@
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="placeholderText">
+    <string/>
+   </property>
   </widget>
   <widget class="QLabel" name="employee_since_text">
    <property name="geometry">

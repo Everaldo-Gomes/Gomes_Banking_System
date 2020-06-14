@@ -49,6 +49,12 @@ void main_screen::on_search_account_button_clicked() {
     sa->show();
 }
 
+//open add staff window
+void main_screen::on_add_staff_button_clicked() {
+    add_staff *af = new add_staff();
+    af->show();
+}
+
 //open about window
 void main_screen::on_about_button_clicked() {
     about *ab = new about();
@@ -59,4 +65,10 @@ void main_screen::on_about_button_clicked() {
 void main_screen::on_support_button_clicked() {
     support *s = new support();
     s->show();
+}
+
+
+void main_screen::on_block_staff_button_clicked() {
+    block_staff *bs = new block_staff();
+    bs->show();
 }

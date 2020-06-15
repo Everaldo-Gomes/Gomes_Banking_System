@@ -20,6 +20,7 @@ SOURCES += \
     about.cpp \
     add_staff.cpp \
     block_staff.cpp \
+    database_connection.cpp \
     main.cpp \
     login.cpp \
     main_screen.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     about.h \
     add_staff.h \
     block_staff.h \
+    database_connection.h \
     global_variables.h \
     login.h \
     main_screen.h \

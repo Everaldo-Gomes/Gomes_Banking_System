@@ -7,13 +7,14 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <QSqlError>
 #include <QIntValidator>
 #include <QDateTime>
 #include <QComboBox>
 #include <QMessageBox>
 #include <QDebug>
+#include "database_connection.h"
 #include "global_variables.h"
+#include "login.h"
 
 namespace Ui {
 class add_staff;

@@ -61,7 +61,7 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">Full mame</string>
+    <string notr="true">Name</string>
    </property>
   </widget>
   <widget class="QLabel" name="cpf_text">

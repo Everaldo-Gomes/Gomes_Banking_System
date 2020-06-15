@@ -28,6 +28,16 @@ public:
     Login(QWidget *parent = nullptr);
     ~Login();
 
+    QString encrypt_password(QString s) {
+        QByteArray pw = s.toUtf8();                 //convert string to QbyteArray
+        QByteArray encrypt = pw;
+        QCryptographicHash hasher(QCryptographicHash::Sha1);
+        hasher.addData(encrypt);
+        QByteArray new_password = hasher.result();
+        QString encrypted_password = new_password;   //convert qByteArray to string
+        return encrypted_password;
+    }
+
 private slots:
 
     void on_cpf_field_textEdited();

@@ -3,18 +3,13 @@
 
 #include <QWidget>
 #include <QDebug>
-
-#include <QSqlDatabase>
-#include <QtSql>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QIntValidator>
 #include <QDateTime>
 #include <QMessageBox>
+#include <QDateTime>
 #include <QDebug>
-#include "global_variables.h"
 
+#include "database_connection.h"
+#include "global_variables.h"
 
 namespace Ui {
 class support;

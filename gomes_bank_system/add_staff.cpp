@@ -29,18 +29,8 @@ void add_staff::on_pushButton_2_clicked() {
 //add button
 void add_staff::on_pushButton_clicked() {
 
-    QString typed_cpf = ui->cpf_input->text();
-
-    //connect to the database to check information
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-
-    db.setHostName("localhost");
-    db.setDatabaseName("gomes_bank_system");
-    db.setUserName("main");
-    db.setPassword("gomes");  //actual passord
-    db.open();
-
     QString typed_name             = ui->name_input->text();
+    QString typed_cpf              = ui->cpf_input->text();
     QString typed_address          = ui->address_input->text();
     QString typed_phone            = ui->phone_input->text();
     QString typed_day              = ui->day_input->text();
@@ -52,35 +42,32 @@ void add_staff::on_pushButton_clicked() {
     QString typed_confirm_password = ui->confirm_passowrd_input->text();
     QString full_data = typed_year + "-" + typed_month + "-" + typed_day;
 
+    //verify if all field were filled
     if(typed_name == "" || typed_address == "" || typed_phone == "" || typed_day == "" || typed_month == "" || typed_year == "" ||
        typed_email == "" || typed_sector == "" || typed_password == "" || typed_confirm_password == "") {
         ui->error_message->setText("Enter all needed information.");
     }
+
+    //verify if the typed passowords match
     else if(typed_password != typed_confirm_password) { ui->error_message->setText("Passwords don't match."); }
+
+    //ask for a confimation before sending the message
     else {
-        //ask for a confimation before sending the message
         QMessageBox::StandardButton confirmation;
         confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
                                       QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
 
-        if(db.open()) {
-            bool exist = false;
-            QSqlQuery search_cpf;
-            search_cpf.exec("select cpf from staff;");
+        //do not make a single "if" because it has two types of errors
+        else if(connect_database()) {
+             if(search_cpf(typed_cpf)) {  //verify if the staff already exist
 
-            //search if alrady exist the staff
-            while(search_cpf.next()) {
-                QString found_cpf = search_cpf.value(0).toString();
-                if(typed_cpf == found_cpf) {
-                    ui->error_message->setText("CPF already registerd");
-                    exist = true;
-                }
-            }
+                //encrypt password
+                Login *ll = new Login();
+                QString encrypted_password = ll->encrypt_password(typed_password);
 
-            //add
-            if(!exist) {
+                //add staff
                 QSqlQuery add_staff_query;
                 add_staff_query.prepare("INSERT INTO staff (full_name, cpf, address, phone_number, birthday, email, sector, password, created_in, by_staff)"
                                         "VALUES (?,?,?,?,?,?,?,?,?,?)");
@@ -91,7 +78,7 @@ void add_staff::on_pushButton_clicked() {
                 add_staff_query.addBindValue(full_data);
                 add_staff_query.addBindValue(typed_email);
                 add_staff_query.addBindValue(typed_sector);
-                add_staff_query.addBindValue(typed_password);
+                add_staff_query.addBindValue(encrypted_password);
                 add_staff_query.addBindValue(QDateTime::currentDateTime());
                 add_staff_query.addBindValue(connected_id.toInt());
                 add_staff_query.exec();
@@ -112,9 +99,10 @@ void add_staff::on_pushButton_clicked() {
                 //show a message that the staff has been added
                 QMessageBox::information(this,"About staff", "The staff has been added");
             }
+            else{ ui->error_message->setText("CPF already registerd"); }
         }
         else { ui->error_message->setText("You're not connected"); }
-        db.close();
+        close_connection_database();
     }
 }
 

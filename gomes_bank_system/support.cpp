@@ -1,6 +1,5 @@
 #include "support.h"
 #include "ui_support.h"
-#include <QDateTime>
 
 void add(int id, QString day, QString message);
 
@@ -15,7 +14,7 @@ support::~support() {
 //text area
 void support::on_support_message_textChanged() {
 
-    int max_length = 500;
+    int max_length = 255;
 
     //if reach the character limit delete the following characters
     if(ui->support_message->toPlainText().length() > max_length){
@@ -49,18 +48,7 @@ void support::on_send_button_clicked() {
                                       QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
-        else {
-            //connect to the database to check information
-            QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-
-            db.setHostName("localhost");
-            db.setDatabaseName("gomes_bank_system");
-            db.setUserName("main");
-            db.setPassword("gomes");  //actual passord
-            db.open();
-
-            //store information
-            if(db.open()) {
+        else if(connect_database()) {              //store information
                 QSqlQuery insert_message_query;
                 insert_message_query.prepare("INSERT INTO support (staff_id, opening_day, message)"
                                              "VALUES (?,?,?)");
@@ -74,10 +62,9 @@ void support::on_send_button_clicked() {
                 QMessageBox::information(this,"About your message", "Your meessage has been sent");
                 ui->support_message->setText("");
             }
-            else { ui->error_message->setText("You're not connected"); }
-            db.close();
-        }
-    }
+        else { ui->error_message->setText("You're not connected"); }
+        close_connection_database();
+   }
 }
 
 /*

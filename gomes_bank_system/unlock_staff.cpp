@@ -1,26 +1,21 @@
-#include "block_staff.h"
-#include "ui_block_staff.h"
+#include "unlock_staff.h"
+#include "ui_unlock_staff.h"
 
-extern int found_staff_id_int;
+int found_staff_id_int;
 
-block_staff::block_staff(QWidget *parent) : QWidget(parent), ui(new Ui::block_staff) {
+unlock_staff::unlock_staff(QWidget *parent) : QWidget(parent), ui(new Ui::unlock_staff) {
     ui->setupUi(this);
     ui->cpf_field_input->setValidator(new QDoubleValidator(0, 999999999999, 2, this)); //allow only numbers. need to be double becuase the range is too long
     ui->reason_message_input->setDisabled(true); //disable reason field
-    ui->block_button->setDisabled(true); //disable block button
+    ui->unlock_button->setDisabled(true); //disable unlock button
 }
 
-block_staff::~block_staff() {
+unlock_staff::~unlock_staff() {
     delete ui;
 }
 
-//close button
-void block_staff::on_cancel_button_clicked() {
-    this->close();
-}
-
 //clean all information
-void block_staff::on_cpf_field_input_textChanged() {
+void unlock_staff::on_cpf_field_input_textChanged() {
     ui->error_message->setText("");
     ui->name_output->setText("");
     ui->cpf_output->setText("");
@@ -35,7 +30,7 @@ void block_staff::on_cpf_field_input_textChanged() {
 }
 
 //search button
-void block_staff::on_search_button_clicked() {
+void unlock_staff::on_search_button_clicked() {
     QString typed_cpf = ui->cpf_field_input->text();
 
     if(typed_cpf == "") { ui->error_message->setText("Enter a valid CPF."); }
@@ -48,12 +43,14 @@ void block_staff::on_search_button_clicked() {
             if(is_blocked) {
                 ui->status_output->setText("Blocked");
                 ui->status_output->setStyleSheet("QLabel{ color: red;}");
-                ui->block_button->setDisabled(true);
-                ui->reason_message_input->setDisabled(true);
+                ui->unlock_button->setDisabled(true);
+                ui->reason_message_input->setDisabled(false);
             }
             else {
                 ui->status_output->setText("Unlocked");
                 ui->status_output->setStyleSheet("QLabel{ color: green;}");
+                ui->unlock_button->setDisabled(true);
+                ui->reason_message_input->setDisabled(true);
             }
 
             //show information
@@ -92,55 +89,47 @@ void block_staff::on_search_button_clicked() {
     else { ui->error_message->setText("You re not connected"); }
 }
 
-//block button
-void block_staff::on_block_button_clicked() {
-    QString typed_cpf = ui->cpf_field_input->text();
+//unlock button
+void unlock_staff::on_unlock_button_clicked() {
 
-    //ask for a confirmation
     QMessageBox::StandardButton confirmation;
     confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
                                   QMessageBox::Yes | QMessageBox::No);
 
     if(confirmation == QMessageBox::No) { /*do nothing*/ }
     else {
-        QString reason_message = ui->reason_message_input->toPlainText(); //get the reason
+        QString typed_cpf = ui->cpf_field_input->text();
+        QString reason_message = ui->reason_message_input->toPlainText();
 
-        //check if the staff is trying to get yourself blocked
+        //check if the staff is trying to get yourself unlocked
         if(connected_id.toInt() == found_staff_id_int) {
-              QMessageBox::information(this,"Blocking not allowed", "You can not block yourself");
+              QMessageBox::information(this,"Unlocking not allowed", "You can not unblock yourself");
         }
         else {
-            //if the staff wasn't blocked yet, put him/her into many_times_staff_blocked database
-            if(!blocked_many_times(found_staff_id_int)) {
-                QSqlQuery enter_staff;
-                enter_staff.prepare("INSERT INTO many_times_staff_blocked (staff_id, times)"
-                                    "VALUES (?,?)");
-                enter_staff.addBindValue(found_staff_id_int); //staff id
-                enter_staff.addBindValue(1);            //in the first time the values of "times" will be 1
-                enter_staff.exec();
-            }
-            else { //just update how many times they were blocked
+            //put info into the unlocked dabase
+            QSqlQuery unlock_staff_query;
+            unlock_staff_query.prepare("INSERT INTO unlocked_staff (responsable_staff_id, unlocked_staff_id, unlocking_day, reason)"
+                                      "VALUES (?,?,?,?)");
 
-                int staff_id = search_id_by_cpf(typed_cpf);
-                int count = how_many_times_blocked(staff_id);
+            unlock_staff_query.addBindValue(connected_id.toInt());
+            unlock_staff_query.addBindValue(found_staff_id_int);
+            unlock_staff_query.addBindValue(QDateTime::currentDateTime());
+            unlock_staff_query.addBindValue(reason_message);
+            unlock_staff_query.exec();
 
-                //add by 1
-                QSqlQuery count_blocked_staff;
-                count_blocked_staff.prepare("UPDATE many_times_staff_blocked set times = ? WHERE staff_id = ?");
-                count_blocked_staff.addBindValue(count+1);
-                count_blocked_staff.addBindValue(staff_id);
-                count_blocked_staff.exec();
-            }
+            //remove the staff from the blocked database
+            QSqlQuery remove_from_blocked_table;
+            remove_from_blocked_table.prepare("DELETE FROM blocked_staff WHERE blocked_staff_id = ?");
+            remove_from_blocked_table.addBindValue(found_staff_id_int);
+            remove_from_blocked_table.exec();
 
-            //block staff
-            block_staff_(connected_id, found_staff_id_int, reason_message);
-            QMessageBox::information(this,"About staff", "The staff has been blocked"); //show a message that the staff has been blocked
+            QMessageBox::information(this,"About staff", "The staff has been unlocked"); //show a message that the staff has been unlocked
 
             //clean info
             ui->error_message->setText("");
             ui->name_output->setText("");
             ui->cpf_output->setText("");
-            ui->address_output ->setText("");
+            ui->address_output->setText("");
             ui->phone_output->setText("");
             ui->birthday_output->setText("");
             ui->email_output->setText("");
@@ -155,7 +144,7 @@ void block_staff::on_block_button_clicked() {
 }
 
 //reason field
-void block_staff::on_reason_message_input_textChanged() {
+void unlock_staff::on_reason_message_input_textChanged() {
     int max_length = 255;
 
     //if reach the character limit delete the following characters
@@ -168,7 +157,12 @@ void block_staff::on_reason_message_input_textChanged() {
     int len_to_show = max_length - actual_len;
     ui->character_limit->setText(QString::number(len_to_show));  //convert to string
 
-    //only enable block button when some characters were typed
-    if(len_to_show <= 240) ui->block_button->setDisabled(false);
-    else { ui->block_button->setDisabled(true); }
+    //only enable unlock button when some characters were typed
+    if(len_to_show <= 240) ui->unlock_button->setDisabled(false);
+    else { ui->unlock_button->setDisabled(true); }
+}
+
+//cancel button
+void unlock_staff::on_cancel_button_clicked() {
+    this->close();
 }

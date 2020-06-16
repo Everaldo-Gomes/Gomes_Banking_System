@@ -27,7 +27,8 @@ SOURCES += \
     search_account.cpp \
     search_customer.cpp \
     search_staff.cpp \
-    support.cpp
+    support.cpp \
+    unlock_staff.cpp
 
 HEADERS += \
     about.h \
@@ -40,7 +41,8 @@ HEADERS += \
     search_account.h \
     search_customer.h \
     search_staff.h \
-    support.h
+    support.h \
+    unlock_staff.h
 
 FORMS += \
     about.ui \
@@ -51,7 +53,8 @@ FORMS += \
     search_account.ui \
     search_customer.ui \
     search_staff.ui \
-    support.ui
+    support.ui \
+    unlock_staff.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,102 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>block_staff</class>
- <widget class="QWidget" name="block_staff">
+ <class>unlock_staff</class>
+ <widget class="QWidget" name="unlock_staff">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>471</height>
+    <height>470</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>400</width>
-    <height>471</height>
+    <height>470</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>471</height>
+    <height>470</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Block Staff</string>
+   <string>Unlock Staff</string>
   </property>
-  <widget class="QLabel" name="cpf_text_input">
+  <widget class="QLabel" name="address_output">
    <property name="geometry">
     <rect>
-     <x>52</x>
-     <y>19</y>
-     <width>44</width>
-     <height>12</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="text">
-    <string notr="true">CPF</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="cpf_field_input">
-   <property name="geometry">
-    <rect>
-     <x>102</x>
-     <y>15</y>
-     <width>170</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="maxLength">
-    <number>11</number>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="placeholderText">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="error_message">
-   <property name="geometry">
-    <rect>
-     <x>86</x>
-     <y>43</y>
-     <width>201</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="search_button">
-   <property name="geometry">
-    <rect>
-     <x>288</x>
-     <y>15</y>
-     <width>90</width>
+     <x>80</x>
+     <y>134</y>
+     <width>301</width>
      <height>21</height>
     </rect>
    </property>
@@ -105,17 +39,20 @@
      <pointsize>13</pointsize>
     </font>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
    <property name="text">
-    <string>Search</string>
+    <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="birthday_text">
+  <widget class="QLabel" name="created_output">
    <property name="geometry">
     <rect>
-     <x>12</x>
-     <y>160</y>
-     <width>61</width>
-     <height>21</height>
+     <x>208</x>
+     <y>219</y>
+     <width>171</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -123,11 +60,14 @@
      <pointsize>13</pointsize>
     </font>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
    <property name="text">
-    <string notr="true">Birthday</string>
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="email_text">
@@ -172,6 +112,30 @@
     <string notr="true">CPF</string>
    </property>
   </widget>
+  <widget class="QLabel" name="status_output">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>249</y>
+     <width>110</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <widget class="QLabel" name="sector_text">
    <property name="geometry">
     <rect>
@@ -191,147 +155,6 @@
    </property>
    <property name="text">
     <string notr="true">Sector</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="phone_text">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>104</y>
-     <width>45</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="text">
-    <string notr="true">Phone</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="name_text">
-   <property name="geometry">
-    <rect>
-     <x>13</x>
-     <y>76</y>
-     <width>71</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="text">
-    <string notr="true">Name</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="address_text">
-   <property name="geometry">
-    <rect>
-     <x>12</x>
-     <y>131</y>
-     <width>51</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="text">
-    <string notr="true">Address</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="block_button">
-   <property name="geometry">
-    <rect>
-     <x>56</x>
-     <y>419</y>
-     <width>101</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Block</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="cancel_button">
-   <property name="geometry">
-    <rect>
-     <x>228</x>
-     <y>419</y>
-     <width>101</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Cancel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="name_output">
-   <property name="geometry">
-    <rect>
-     <x>81</x>
-     <y>78</y>
-     <width>301</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="cpf_output">
-   <property name="geometry">
-    <rect>
-     <x>81</x>
-     <y>106</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="phone_output">
@@ -355,102 +178,12 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="address_output">
+  <widget class="QLabel" name="name_text">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>134</y>
-     <width>301</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="email_output">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>188</y>
-     <width>301</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="sector_output">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>161</y>
-     <width>131</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="birthday_output">
-   <property name="geometry">
-    <rect>
-     <x>79</x>
-     <y>161</y>
-     <width>101</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="id_text">
-   <property name="geometry">
-    <rect>
-     <x>14</x>
-     <y>217</y>
-     <width>31</width>
+     <x>13</x>
+     <y>76</y>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
@@ -463,76 +196,7 @@
     <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
-    <string notr="true">ID</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="id_output">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>219</y>
-     <width>51</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="created_text">
-   <property name="geometry">
-    <rect>
-     <x>151</x>
-     <y>217</y>
-     <width>51</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="text">
-    <string notr="true">Created in</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="created_output">
-   <property name="geometry">
-    <rect>
-     <x>208</x>
-     <y>219</y>
-     <width>171</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <string notr="true">Name</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="reason_message_input">
@@ -550,7 +214,28 @@
     </font>
    </property>
    <property name="placeholderText">
-    <string>Why this staff is being blocked?</string>
+    <string>Why this staff is being unocked?</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="cpf_text_input">
+   <property name="geometry">
+    <rect>
+     <x>52</x>
+     <y>19</y>
+     <width>44</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string notr="true">CPF</string>
    </property>
   </widget>
   <widget class="QLabel" name="character_limit">
@@ -592,12 +277,225 @@
     <string notr="true">Status</string>
    </property>
   </widget>
-  <widget class="QLabel" name="status_output">
+  <widget class="QLabel" name="id_text">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>217</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string notr="true">ID</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="phone_text">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>104</y>
+     <width>45</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string notr="true">Phone</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="created_text">
+   <property name="geometry">
+    <rect>
+     <x>151</x>
+     <y>217</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string notr="true">Created in</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sector_output">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>161</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="cpf_output">
+   <property name="geometry">
+    <rect>
+     <x>81</x>
+     <y>106</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="search_button">
+   <property name="geometry">
+    <rect>
+     <x>288</x>
+     <y>15</y>
+     <width>90</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="address_text">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>131</y>
+     <width>51</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string notr="true">Address</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="email_output">
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>249</y>
-     <width>110</width>
+     <y>188</y>
+     <width>301</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="error_message">
+   <property name="geometry">
+    <rect>
+     <x>86</x>
+     <y>43</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cpf_field_input">
+   <property name="geometry">
+    <rect>
+     <x>102</x>
+     <y>15</y>
+     <width>170</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="maxLength">
+    <number>11</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="placeholderText">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="birthday_output">
+   <property name="geometry">
+    <rect>
+     <x>79</x>
+     <y>161</y>
+     <width>101</width>
      <height>20</height>
     </rect>
    </property>
@@ -616,7 +514,116 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="name_output">
+   <property name="geometry">
+    <rect>
+     <x>81</x>
+     <y>78</y>
+     <width>301</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="id_output">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>219</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="birthday_text">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>160</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string notr="true">Birthday</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="unlock_button">
+   <property name="geometry">
+    <rect>
+     <x>56</x>
+     <y>419</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Unlock</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancel_button">
+   <property name="geometry">
+    <rect>
+     <x>228</x>
+     <y>419</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>cpf_field_input</tabstop>
+  <tabstop>search_button</tabstop>
+  <tabstop>reason_message_input</tabstop>
+  <tabstop>unlock_button</tabstop>
+  <tabstop>cancel_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

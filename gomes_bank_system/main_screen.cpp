@@ -55,6 +55,18 @@ void main_screen::on_add_staff_button_clicked() {
     af->show();
 }
 
+//open block staff window
+void main_screen::on_block_staff_button_clicked() {
+    block_staff *bs = new block_staff();
+    bs->show();
+}
+
+//open unlock staff window
+void main_screen::on_unlock_staff_button_clicked() {
+    unlock_staff *us = new unlock_staff();
+    us->show();
+}
+
 //open about window
 void main_screen::on_about_button_clicked() {
     about *ab = new about();
@@ -68,7 +80,3 @@ void main_screen::on_support_button_clicked() {
 }
 
 
-void main_screen::on_block_staff_button_clicked() {
-    block_staff *bs = new block_staff();
-    bs->show();
-}

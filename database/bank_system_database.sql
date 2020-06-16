@@ -33,5 +33,27 @@ create table blocked_staff (
        reason			varchar(255) 	not null,
        constraint pk_blocked_id primary key(id),
        constraint fk_responsable_staff_id foreign key(responsable_staff_id) references staff(id),
-       constraint fk_blocked_staff_id foreign key (blocked_staff_id) references staff(id)
+       constraint fk_blocked_staff_id foreign key(blocked_staff_id) references staff(id)
+);
+
+--unlocked staff table
+create table unlocked_staff (
+       id			serial,
+       responsable_staff_id	integer		not null,
+       unlocked_staff_id	integer       	not null,
+       unlocking_day		timestamp     	not null,
+       reason			varchar(255) 	not null,
+       constraint pk_unlocked_id primary key(id),
+       constraint fk_responsable_staff_id foreign key(responsable_staff_id) references staff(id),
+       constraint fk_unlocked_staff_id foreign key(unlocked_staff_id) references staff(id)
+);
+
+
+--count_blocked_staff
+create table many_times_staff_blocked (
+       id               serial,
+       staff_id		integer		not null,
+       times		integer		not null,
+       constraint pk_count_blocked_staff_id primary key(staff_id),
+       constraint fk_count_blocked_staff_id foreign key(staff_id) references staff(id)
 );

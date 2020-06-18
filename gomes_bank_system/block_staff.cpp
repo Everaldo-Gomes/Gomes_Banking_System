@@ -2,12 +2,14 @@
 #include "ui_block_staff.h"
 
 extern int found_staff_id_int;
+extern QString get_sector;
 
 block_staff::block_staff(QWidget *parent) : QWidget(parent), ui(new Ui::block_staff) {
     ui->setupUi(this);
     ui->cpf_field_input->setValidator(new QDoubleValidator(0, 999999999999, 2, this)); //allow only numbers. need to be double becuase the range is too long
     ui->reason_message_input->setDisabled(true); //disable reason field
     ui->block_button->setDisabled(true); //disable block button
+    ui->error_message->setStyleSheet("QLabel{ color: red;}"); //error message color
 }
 
 block_staff::~block_staff() {
@@ -72,6 +74,7 @@ void block_staff::on_search_button_clicked() {
                 QString found_created_in = get_info.value(9).toString();
 
                 found_staff_id_int = found_id.toInt(); //used when clink on block button
+                get_sector = found_sector;             //used when clink on block button
 
                 if(typed_cpf == found_cpf) {
                     ui->name_output->setText(found_name);
@@ -109,6 +112,10 @@ void block_staff::on_block_button_clicked() {
         if(connected_id.toInt() == found_staff_id_int) {
               QMessageBox::information(this,"Blocking not allowed", "You can not block yourself");
         }
+        //preventing an attendant to block a manager
+        else if(get_sector == "Manager" && connected_sector == "Attendant") {
+            QMessageBox::information(this,"Blocking not allowed", "You can not block a Manager");
+        }
         else {
             //if the staff wasn't blocked yet, put him/her into many_times_staff_blocked database
             if(!blocked_many_times(found_staff_id_int)) {
@@ -137,18 +144,8 @@ void block_staff::on_block_button_clicked() {
             QMessageBox::information(this,"About staff", "The staff has been blocked"); //show a message that the staff has been blocked
 
             //clean info
-            ui->error_message->setText("");
-            ui->name_output->setText("");
-            ui->cpf_output->setText("");
-            ui->address_output ->setText("");
-            ui->phone_output->setText("");
-            ui->birthday_output->setText("");
-            ui->email_output->setText("");
-            ui->sector_output->setText("");
-            ui->created_output->setText("");
-            ui->id_output->setText("");
-            ui->status_output->setText("");
-            ui->reason_message_input->setText("");
+            block_staff::on_cpf_field_input_textChanged();
+            ui->reason_message_input->setText(""); //this cannot be used when call the function above
         }
     }
     close_connection_database();

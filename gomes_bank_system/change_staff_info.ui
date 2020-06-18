@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>541</height>
+    <height>560</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>400</width>
-    <height>541</height>
+    <height>560</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>541</height>
+    <height>560</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -203,7 +203,7 @@
    <property name="geometry">
     <rect>
      <x>56</x>
-     <y>498</y>
+     <y>513</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -383,7 +383,7 @@
    <property name="geometry">
     <rect>
      <x>228</x>
-     <y>498</y>
+     <y>513</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -421,7 +421,7 @@
   <widget class="QLabel" name="character_limit">
    <property name="geometry">
     <rect>
-     <x>344</x>
+     <x>346</x>
      <y>473</y>
      <width>41</width>
      <height>16</height>
@@ -512,6 +512,9 @@
     <font>
      <pointsize>13</pointsize>
     </font>
+   </property>
+   <property name="maxLength">
+    <number>14</number>
    </property>
   </widget>
   <widget class="QLineEdit" name="address_i_o">
@@ -727,7 +730,43 @@
     <string>Mandatory</string>
    </property>
   </widget>
+  <widget class="QLabel" name="error_message_pw">
+   <property name="geometry">
+    <rect>
+     <x>88</x>
+     <y>476</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>cpf_field_input</tabstop>
+  <tabstop>search_button</tabstop>
+  <tabstop>name_i_o</tabstop>
+  <tabstop>phone_i_o</tabstop>
+  <tabstop>address_i_o</tabstop>
+  <tabstop>sector_input</tabstop>
+  <tabstop>email_i_o</tabstop>
+  <tabstop>current_password_input</tabstop>
+  <tabstop>password_input</tabstop>
+  <tabstop>confirm_passowrd_input</tabstop>
+  <tabstop>reason_message_input</tabstop>
+  <tabstop>change_button</tabstop>
+  <tabstop>cancel_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -13,8 +13,8 @@ add_staff::add_staff(QWidget *parent) : QWidget(parent), ui(new Ui::add_staff) {
 
     //sector option
     ui->sector_input->addItem("");
-    ui->sector_input->addItem("Manger");
-    ui->sector_input->addItem("Atendant");
+    ui->sector_input->addItem("Manager");
+    ui->sector_input->addItem("Attendant");
 }
 
 add_staff::~add_staff() {

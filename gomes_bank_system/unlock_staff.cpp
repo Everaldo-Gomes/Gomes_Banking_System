@@ -2,12 +2,14 @@
 #include "ui_unlock_staff.h"
 
 int found_staff_id_int;
+QString get_sector;
 
 unlock_staff::unlock_staff(QWidget *parent) : QWidget(parent), ui(new Ui::unlock_staff) {
     ui->setupUi(this);
     ui->cpf_field_input->setValidator(new QDoubleValidator(0, 999999999999, 2, this)); //allow only numbers. need to be double becuase the range is too long
     ui->reason_message_input->setDisabled(true); //disable reason field
     ui->unlock_button->setDisabled(true); //disable unlock button
+    ui->error_message->setStyleSheet("QLabel{ color: red;}"); //error message color
 }
 
 unlock_staff::~unlock_staff() {
@@ -69,6 +71,7 @@ void unlock_staff::on_search_button_clicked() {
                 QString found_created_in = get_info.value(9).toString();
 
                 found_staff_id_int = found_id.toInt(); //used when clink on block button
+                get_sector = found_sector;             //used when clink on block button
 
                 if(typed_cpf == found_cpf) {
                     ui->name_output->setText(found_name);
@@ -105,6 +108,10 @@ void unlock_staff::on_unlock_button_clicked() {
         if(connected_id.toInt() == found_staff_id_int) {
               QMessageBox::information(this,"Unlocking not allowed", "You can not unblock yourself");
         }
+        //preventing an attendant to unlock a manager
+        else if(get_sector == "Manager" && connected_sector == "Attendant") {
+            QMessageBox::information(this,"Unlocking not allowed", "You can not unlock a Manager");
+        }
         else {
             //put info into the unlocked dabase
             QSqlQuery unlock_staff_query;
@@ -126,18 +133,11 @@ void unlock_staff::on_unlock_button_clicked() {
             QMessageBox::information(this,"About staff", "The staff has been unlocked"); //show a message that the staff has been unlocked
 
             //clean info
-            ui->error_message->setText("");
-            ui->name_output->setText("");
-            ui->cpf_output->setText("");
-            ui->address_output->setText("");
-            ui->phone_output->setText("");
-            ui->birthday_output->setText("");
-            ui->email_output->setText("");
-            ui->sector_output->setText("");
-            ui->created_output->setText("");
-            ui->id_output->setText("");
-            ui->status_output->setText("");
+            unlock_staff::on_cpf_field_input_textChanged();
+
+            //these two cannot be used when call the function above
             ui->reason_message_input->setText("");
+            ui->cpf_field_input->setText("");
         }
     }
     close_connection_database();

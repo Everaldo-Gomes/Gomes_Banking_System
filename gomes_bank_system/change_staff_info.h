@@ -32,6 +32,12 @@ private slots:
 
     void on_change_button_clicked();
 
+    void on_password_input_textChanged();
+
+    void on_confirm_passowrd_input_textChanged();
+
+    void on_current_password_input_textChanged();
+
 private:
     Ui::change_staff_info *ui;
 };

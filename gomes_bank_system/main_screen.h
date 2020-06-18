@@ -13,6 +13,7 @@
 #include "add_staff.h"
 #include "block_staff.h"
 #include "unlock_staff.h"
+#include "change_staff_info.h"
 #include "support.h"
 #include "about.h"
 
@@ -46,6 +47,8 @@ private slots:
     void on_block_staff_button_clicked();
 
     void on_unlock_staff_button_clicked();
+
+    void on_change_info_staff_button_clicked();
 
 private:
     Ui::main_screen *ui;

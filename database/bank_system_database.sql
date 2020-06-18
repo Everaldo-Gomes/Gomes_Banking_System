@@ -27,27 +27,26 @@ create table support (
 --blocked staff table
 create table blocked_staff (
        id			serial,
-       responsable_staff_id	integer		not null,
+       responsible_staff_id	integer		not null,
        blocked_staff_id		integer       	not null,
        blocking_day		timestamp     	not null,
        reason			varchar(255) 	not null,
        constraint pk_blocked_id primary key(id),
-       constraint fk_responsable_staff_id foreign key(responsable_staff_id) references staff(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id),
        constraint fk_blocked_staff_id foreign key(blocked_staff_id) references staff(id)
 );
 
 --unlocked staff table
 create table unlocked_staff (
        id			serial,
-       responsable_staff_id	integer		not null,
+       responsible_staff_id	integer		not null,
        unlocked_staff_id	integer       	not null,
        unlocking_day		timestamp     	not null,
        reason			varchar(255) 	not null,
        constraint pk_unlocked_id primary key(id),
-       constraint fk_responsable_staff_id foreign key(responsable_staff_id) references staff(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id),
        constraint fk_unlocked_staff_id foreign key(unlocked_staff_id) references staff(id)
 );
-
 
 --count_blocked_staff
 create table many_times_staff_blocked (
@@ -56,4 +55,16 @@ create table many_times_staff_blocked (
        times		integer		not null,
        constraint pk_count_blocked_staff_id primary key(staff_id),
        constraint fk_count_blocked_staff_id foreign key(staff_id) references staff(id)
+);
+
+--change_staff_info
+create table change_staff_info (
+       id			serial,
+       responsible_staff_id 	integer 	not null,
+       changed_staff_id		integer		not null,
+       changing_day 		timestamp 	not null,
+       reason 			varchar(255) 	not null,
+       constraint pk_change_info_id primary key(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id),
+       constraint fk_changed_staff_id foreign key(changed_staff_id) references staff(id)
 );

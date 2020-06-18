@@ -20,6 +20,7 @@ SOURCES += \
     about.cpp \
     add_staff.cpp \
     block_staff.cpp \
+    change_staff_info.cpp \
     database_connection.cpp \
     main.cpp \
     login.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     about.h \
     add_staff.h \
     block_staff.h \
+    change_staff_info.h \
     database_connection.h \
     global_variables.h \
     login.h \
@@ -48,6 +50,7 @@ FORMS += \
     about.ui \
     add_staff.ui \
     block_staff.ui \
+    change_staff_info.ui \
     login.ui \
     main_screen.ui \
     search_account.ui \

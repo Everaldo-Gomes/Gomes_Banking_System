@@ -100,7 +100,7 @@ void Login::on_login_button_clicked() {
 
                 while(check_id.next()) { staff_id = check_id.value(0).toInt(); } qDebug() << staff_id << typed_cpf;
 
-                //1 will be the code to the responsabel staff when enter wrong information 3x
+                //1 will be the code to the responsible staff when enter wrong information 3x
                 block_staff_("1", staff_id , "CPF or password wrong. Typed 3x.");
                 count = 0;
                 ui->error_message->setText("Staff was blocked");

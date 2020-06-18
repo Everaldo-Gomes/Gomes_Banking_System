@@ -14,7 +14,7 @@ unlock_staff::~unlock_staff() {
     delete ui;
 }
 
-//clean all information
+//clean all information when change cpf
 void unlock_staff::on_cpf_field_input_textChanged() {
     ui->error_message->setText("");
     ui->name_output->setText("");
@@ -108,7 +108,7 @@ void unlock_staff::on_unlock_button_clicked() {
         else {
             //put info into the unlocked dabase
             QSqlQuery unlock_staff_query;
-            unlock_staff_query.prepare("INSERT INTO unlocked_staff (responsable_staff_id, unlocked_staff_id, unlocking_day, reason)"
+            unlock_staff_query.prepare("INSERT INTO unlocked_staff (responsible_staff_id, unlocked_staff_id, unlocking_day, reason)"
                                       "VALUES (?,?,?,?)");
 
             unlock_staff_query.addBindValue(connected_id.toInt());

@@ -78,7 +78,7 @@ bool blocked_many_times(int blocked_staff_id) {
 
 void block_staff_(QString connected_id, int found_id_int, QString reason_message) {
     QSqlQuery block_staff_query;
-    block_staff_query.prepare("INSERT INTO blocked_staff (responsable_staff_id, blocked_staff_id, blocking_day, reason)"
+    block_staff_query.prepare("INSERT INTO blocked_staff (responsible_staff_id, blocked_staff_id, blocking_day, reason)"
                               "VALUES (?,?,?,?)");
 
     block_staff_query.addBindValue(connected_id.toInt());

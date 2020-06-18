@@ -19,7 +19,7 @@ void block_staff::on_cancel_button_clicked() {
     this->close();
 }
 
-//clean all information
+//clean all information when change cpf
 void block_staff::on_cpf_field_input_textChanged() {
     ui->error_message->setText("");
     ui->name_output->setText("");

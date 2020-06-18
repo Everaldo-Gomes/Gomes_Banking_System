@@ -67,6 +67,12 @@ void main_screen::on_unlock_staff_button_clicked() {
     us->show();
 }
 
+//open change staff info window
+void main_screen::on_change_info_staff_button_clicked() {
+    change_staff_info *cf = new change_staff_info();
+    cf->show();
+}
+
 //open about window
 void main_screen::on_about_button_clicked() {
     about *ab = new about();
@@ -78,5 +84,6 @@ void main_screen::on_support_button_clicked() {
     support *s = new support();
     s->show();
 }
+
 
 

@@ -10,6 +10,7 @@ block_staff::block_staff(QWidget *parent) : QWidget(parent), ui(new Ui::block_st
     ui->reason_message_input->setDisabled(true); //disable reason field
     ui->block_button->setDisabled(true); //disable block button
     ui->error_message->setStyleSheet("QLabel{ color: red;}"); //error message color
+    ui->cpf_field_input->setFocus();
 }
 
 block_staff::~block_staff() {

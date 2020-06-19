@@ -10,6 +10,7 @@ unlock_staff::unlock_staff(QWidget *parent) : QWidget(parent), ui(new Ui::unlock
     ui->reason_message_input->setDisabled(true); //disable reason field
     ui->unlock_button->setDisabled(true); //disable unlock button
     ui->error_message->setStyleSheet("QLabel{ color: red;}"); //error message color
+    ui->cpf_field_input->setFocus();
 }
 
 unlock_staff::~unlock_staff() {

@@ -9,6 +9,7 @@ change_staff_info::change_staff_info(QWidget *parent) : QWidget(parent), ui(new 
     ui->cpf_field_input->setValidator(new QDoubleValidator(0, 999999999999, 2, this)); //allow only numbers.
     ui->phone_i_o->setValidator(new QDoubleValidator(0, 999999999999, 2, this));
     ui->change_button->setDisabled(true);
+    ui->cpf_field_input->setFocus();
 
     //sector option
     ui->sector_input->addItem("");

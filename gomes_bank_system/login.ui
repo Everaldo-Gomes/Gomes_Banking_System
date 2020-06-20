@@ -168,9 +168,9 @@
    <widget class="QLabel" name="error_message">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>150</y>
-      <width>261</width>
+      <width>301</width>
       <height>20</height>
      </rect>
     </property>

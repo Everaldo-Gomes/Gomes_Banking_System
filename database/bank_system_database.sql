@@ -82,3 +82,29 @@ create table previous_staff_information (
        constraint pk_previous_staff_info primary key(id),
        constraint fk_change_table_id foreign key(change_table_id) references change_staff_info(id)
 );
+
+--customer
+create table customer (
+       id			serial,
+       full_name		varchar(100)	not null,
+       cpf            		varchar(11) 	not null,
+       address        		varchar(50) 	not null,
+       phone_number   		varchar(14) 	not null,
+       birthday       		date		not null,
+       email 	      		varchar(50) 	not null,
+       created_in     		timestamp 	not null,
+       responsible_staff_id	integer		not null,
+       constraint pk_customer_id primary key(id),
+       constraint fk_customer_responsible_staff foreign key(responsible_staff_id) references staff(id)
+);
+
+--account
+create table account (
+       id    	      serial,
+       account_number serial,	
+       customer_id    integer	     not null,
+       amount         real           not null,
+       password       varchar(100)   not null,
+       constraint pk_account_id primary key(id),
+       constraint fk_customer_id foreign key(customer_id) references customer(id)
+);

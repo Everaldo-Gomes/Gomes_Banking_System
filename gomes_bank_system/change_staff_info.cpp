@@ -65,10 +65,10 @@ void change_staff_info::on_cancel_button_clicked() {
 void change_staff_info::on_search_button_clicked() {
     QString typed_cpf = ui->cpf_field_input->text();
 
-    if(typed_cpf == "") { ui->error_message->setText("Enter a valid CPF."); }
+    if(typed_cpf == "") { ui->error_message->setText("Enter a valid CPF"); }
     else if(connect_database()) {
         if(!search_cpf(typed_cpf)) {
-            ui->reason_message_input->setDisabled(false); //enable reason field
+            ui->reason_message_input->setDisabled(false); //enable reason fields
 
             //check if the staff is blocked
             bool is_blocked = staff_blocked(typed_cpf);
@@ -96,8 +96,8 @@ void change_staff_info::on_search_button_clicked() {
                 QString found_sector     = get_info.value(7).toString();
                 QString found_created_in = get_info.value(9).toString();
 
-                found_staff_id = found_id.toInt(); //used when clink on block button
-                get_sector_ = found_sector;         //used when clink on block button
+                found_staff_id = found_id.toInt(); //used when click on block button
+                get_sector_ = found_sector;        //used when click on block button
 
                 if(typed_cpf == found_cpf) {
                     ui->name_i_o->setText(found_name);
@@ -114,7 +114,7 @@ void change_staff_info::on_search_button_clicked() {
                 }
             }
 
-            //enable all changeable field
+            //enable all changeable fields
             ui->name_i_o->setDisabled(false);
             ui->address_i_o->setDisabled(false);
             ui->phone_i_o->setDisabled(false);
@@ -140,7 +140,7 @@ void change_staff_info::on_change_button_clicked() {
 
     //verify if the new passoword match
     if(ui->password_input->text() != ui->confirm_passowrd_input->text()) {
-        ui->error_message_pw->setText("New passwords don't match.");
+        ui->error_message_pw->setText("New passwords don't match");
     }
     else {
         //confirmation box
@@ -157,7 +157,7 @@ void change_staff_info::on_change_button_clicked() {
             if(connected_id.toInt() == found_staff_id) {
                   QMessageBox::information(this,"Changing not allowed", "You can not change your own info");
             }
-            //preventing an attendant to change a manager
+            //preventing an attendant from changing a manager
             else if(get_sector_ == "Manager" && connected_sector == "Attendant") {
                 QMessageBox::information(this,"Changing not allowed", "You can not change a Manager");
             }
@@ -180,8 +180,7 @@ void change_staff_info::on_change_button_clicked() {
                             break;
                         }
                     }
-                    //if match, make the changees
-                    if(pw_match) {
+                    if(pw_match) { //if match, make the changes
 
                         //put info into changed_staff_info
                         QSqlQuery changes;

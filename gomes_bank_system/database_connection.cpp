@@ -21,14 +21,13 @@ void close_connection_database() {
 int search_id_by_cpf(QString typed_cpf) {
     int staff_id;
     QSqlQuery check_id;
-    check_id.exec("SELECT id FROM staff where cpf = '"+typed_cpf+"';"); //passing variable in a query
+    check_id.exec("SELECT id FROM staff WHERE cpf = '"+typed_cpf+"';"); //passing a string variable in a query
 
     while(check_id.next()) { staff_id = check_id.value(0).toInt(); }
     return staff_id;
 }
 
 bool search_cpf(QString typed_cpf) {
-
     bool not_found = true;
     QSqlQuery search_cpf;
 
@@ -99,10 +98,38 @@ int how_many_times_blocked(int staff_id) {
     return count;
 }
 
+void update_qnt_times_blocked(int staff_id) {
+    int count = how_many_times_blocked(staff_id);
 
+    //add by 1
+    QSqlQuery count_blocked_staff;
+    count_blocked_staff.prepare("UPDATE many_times_staff_blocked set times = ? WHERE staff_id = ?");
+    count_blocked_staff.addBindValue(count+1);
+    count_blocked_staff.addBindValue(staff_id);
+    count_blocked_staff.exec();
+}
 
+bool search_customer_cpf(QString typed_cpf) {
+    bool not_found = true;
+    QSqlQuery search_cpf;
 
+    search_cpf.exec("SELECT cpf FROM customer;");
 
+    while(search_cpf.next()) {
+        QString found_cpf = search_cpf.value(0).toString();
+        if(typed_cpf == found_cpf) { not_found = false; }
+    }
+    return not_found;
+}
+
+int search_customer_id_by_cpf(QString typed_cpf) {
+    int customer_id;
+    QSqlQuery check_id;
+    check_id.exec("SELECT id FROM customer WHERE cpf = '"+typed_cpf+"';"); //passing a string variable in a query
+
+    while(check_id.next()) { customer_id = check_id.value(0).toInt(); }
+    return customer_id;
+}
 
 
 

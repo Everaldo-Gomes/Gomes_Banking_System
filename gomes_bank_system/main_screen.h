@@ -14,6 +14,7 @@
 #include "block_staff.h"
 #include "unlock_staff.h"
 #include "change_staff_info.h"
+#include "add_customer_account.h"
 #include "support.h"
 #include "about.h"
 
@@ -49,6 +50,14 @@ private slots:
     void on_unlock_staff_button_clicked();
 
     void on_change_info_staff_button_clicked();
+
+    void on_add_customer_account_button_clicked();
+
+    void on_block_customer_account_button_clicked();
+
+    void on_unlock_customer_account_button_clicked();
+
+    void on_change_info_customer_account_button_clicked();
 
 private:
     Ui::main_screen *ui;

@@ -29,7 +29,7 @@ public:
     ~Login();
 
     QString encrypt_password(QString s) {
-        QByteArray pw = s.toUtf8();                 //convert string to QbyteArray
+        QByteArray pw = s.toUtf8();                 //convert string to QByteArray
         QByteArray encrypt = pw;
         QCryptographicHash hasher(QCryptographicHash::Sha1);
         hasher.addData(encrypt);

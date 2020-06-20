@@ -4,8 +4,6 @@
 main_screen::main_screen(QWidget *parent) : QWidget(parent), ui(new Ui::main_screen) {
     ui->setupUi(this);
 
-    //this->showMaximized();  //show screen maximazed
-    //setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     //tabs names
     ui->tabWidget->setTabText(0, "GBS");
     ui->tabWidget->setTabText(1, "Search");
@@ -73,6 +71,27 @@ void main_screen::on_change_info_staff_button_clicked() {
     cf->show();
 }
 
+//open add customer/account window
+void main_screen::on_add_customer_account_button_clicked() {
+    add_customer_account *aca = new add_customer_account;
+    aca->show();
+}
+
+//open block customer/account window
+void main_screen::on_block_customer_account_button_clicked() {
+
+}
+
+//open unlock customer/account window
+void main_screen::on_unlock_customer_account_button_clicked() {
+
+}
+
+//open change info customer/account window
+void main_screen::on_change_info_customer_account_button_clicked() {
+
+}
+
 //open about window
 void main_screen::on_about_button_clicked() {
     about *ab = new about();
@@ -84,6 +103,4 @@ void main_screen::on_support_button_clicked() {
     support *s = new support();
     s->show();
 }
-
-
 

@@ -41,14 +41,13 @@ void support::on_send_button_clicked() {
 
     if(report_message == "") { ui->error_message->setText("Type some message"); }
     else {
-
         //ask for a confimation before sending the message
         QMessageBox::StandardButton confirmation;
         confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
                                       QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
-        else if(connect_database()) {              //store information
+        else if(connect_database()) {         //store information
                 QSqlQuery insert_message_query;
                 insert_message_query.prepare("INSERT INTO support (staff_id, opening_day, message)"
                                              "VALUES (?,?,?)");

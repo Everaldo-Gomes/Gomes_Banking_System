@@ -71,8 +71,8 @@ void unlock_staff::on_search_button_clicked() {
                 QString found_sector     = get_info.value(7).toString();
                 QString found_created_in = get_info.value(9).toString();
 
-                found_staff_id_int = found_id.toInt(); //used when clink on block button
-                get_sector = found_sector;             //used when clink on block button
+                found_staff_id_int = found_id.toInt(); //used when click on block button
+                get_sector = found_sector;             //used when click on block button
 
                 if(typed_cpf == found_cpf) {
                     ui->name_output->setText(found_name);
@@ -105,11 +105,11 @@ void unlock_staff::on_unlock_button_clicked() {
         QString typed_cpf = ui->cpf_field_input->text();
         QString reason_message = ui->reason_message_input->toPlainText();
 
-        //check if the staff is trying to get yourself unlocked
+        //check if the staff is trying to unlocked himself
         if(connected_id.toInt() == found_staff_id_int) {
-              QMessageBox::information(this,"Unlocking not allowed", "You can not unblock yourself");
+              QMessageBox::information(this,"Unlocking not allowed", "You can not unlock yourself");
         }
-        //preventing an attendant to unlock a manager
+        //preventing an attendant from changing a manager
         else if(get_sector == "Manager" && connected_sector == "Attendant") {
             QMessageBox::information(this,"Unlocking not allowed", "You can not unlock a Manager");
         }

@@ -74,8 +74,8 @@ void block_staff::on_search_button_clicked() {
                 QString found_sector     = get_info.value(7).toString();
                 QString found_created_in = get_info.value(9).toString();
 
-                found_staff_id_int = found_id.toInt(); //used when clink on block button
-                get_sector = found_sector;             //used when clink on block button
+                found_staff_id_int = found_id.toInt(); //used when click on block button
+                get_sector = found_sector;             //used when click on block button
 
                 if(typed_cpf == found_cpf) {
                     ui->name_output->setText(found_name);
@@ -109,11 +109,11 @@ void block_staff::on_block_button_clicked() {
     else {
         QString reason_message = ui->reason_message_input->toPlainText(); //get the reason
 
-        //check if the staff is trying to get yourself blocked
+        //check if the staff is trying to block himself
         if(connected_id.toInt() == found_staff_id_int) {
               QMessageBox::information(this,"Blocking not allowed", "You can not block yourself");
         }
-        //preventing an attendant to block a manager
+        //preventing an attendant from changing a manager
         else if(get_sector == "Manager" && connected_sector == "Attendant") {
             QMessageBox::information(this,"Blocking not allowed", "You can not block a Manager");
         }
@@ -124,20 +124,12 @@ void block_staff::on_block_button_clicked() {
                 enter_staff.prepare("INSERT INTO many_times_staff_blocked (staff_id, times)"
                                     "VALUES (?,?)");
                 enter_staff.addBindValue(found_staff_id_int); //staff id
-                enter_staff.addBindValue(1);            //in the first time the values of "times" will be 1
+                enter_staff.addBindValue(1);                 //in the first time the values of "times" will be 1
                 enter_staff.exec();
             }
             else { //just update how many times they were blocked
-
                 int staff_id = search_id_by_cpf(typed_cpf);
-                int count = how_many_times_blocked(staff_id);
-
-                //add by 1
-                QSqlQuery count_blocked_staff;
-                count_blocked_staff.prepare("UPDATE many_times_staff_blocked set times = ? WHERE staff_id = ?");
-                count_blocked_staff.addBindValue(count+1);
-                count_blocked_staff.addBindValue(staff_id);
-                count_blocked_staff.exec();
+                update_qnt_times_blocked(staff_id);
             }
 
             //block staff
@@ -156,12 +148,12 @@ void block_staff::on_block_button_clicked() {
 void block_staff::on_reason_message_input_textChanged() {
     int max_length = 255;
 
-    //if reach the character limit delete the following characters
+    //if reach the character limit, delete the following characters
     if(ui->reason_message_input->toPlainText().length() > max_length){
         ui->reason_message_input->textCursor().deletePreviousChar();
     }
 
-    //exhibit the characters limit on the screen
+    //exhibit the characters limit
     int actual_len = ui->reason_message_input->toPlainText().length();
     int len_to_show = max_length - actual_len;
     ui->character_limit->setText(QString::number(len_to_show));  //convert to string

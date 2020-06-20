@@ -48,62 +48,66 @@ void Login::on_login_button_clicked() {
         QString encrypted_password = this->encrypt_password(typed_pw);
 
         if(connect_database()) {
-            bool not_found = true;
-            bool blocked = false;
 
-            //check if the staff is blocked
-            bool is_blocked = staff_blocked(typed_cpf);
-            if(is_blocked) {
-                ui->error_message->setText("Staff Blocked");
-                blocked = true;
-            }
+            //check if the cpf does not exist
+            if(search_cpf(typed_cpf)) { ui->error_message->setText("CPF is not registerd"); }
             else {
-                //check cpf and password
-                QSqlQuery check_login;
-                check_login.exec("SELECT * FROM staff;");
+                bool not_found = true;
+                bool blocked = false;
 
-                while(check_login.next()) {
-                    QString found_id     = check_login.value(0).toString();
-                    QString found_name   = check_login.value(1).toString();
-                    QString found_cpf    = check_login.value(2).toString();
-                    QString found_sector = check_login.value(7).toString();
-                    QString found_pw     = check_login.value(8).toString();
+                //check if the staff is blocked
+                bool is_blocked = staff_blocked(typed_cpf);
+                if(is_blocked) {
+                    ui->error_message->setText("Staff Blocked");
+                    blocked = true;
+                }
+                else {
+                    //check cpf and password
+                    QSqlQuery check_login;
+                    check_login.exec("SELECT * FROM staff;");
 
-                    //pass information to the global variables
-                    connected_id     = found_id;
-                    connected_staff  = found_name;
-                    connected_sector = found_sector;
+                    while(check_login.next()) {
+                        QString found_id     = check_login.value(0).toString();
+                        QString found_name   = check_login.value(1).toString();
+                        QString found_cpf    = check_login.value(2).toString();
+                        QString found_sector = check_login.value(7).toString();
+                        QString found_pw     = check_login.value(8).toString();
 
-                    if(found_cpf == typed_cpf && found_pw == encrypted_password) {
+                        //passing information to the global variables
+                        connected_id     = found_id;
+                        connected_staff  = found_name;
+                        connected_sector = found_sector;
 
-                        //call main screen
-                        main_screen *obj_main_screen = new main_screen();
-                        obj_main_screen->show();
+                        if(found_cpf == typed_cpf && found_pw == encrypted_password) {
 
-                        not_found = false; //if CPF and password were found does not show a error message
-                        this->close();  //close login screnn
-                        break; //stop searching into the database
+                            //call main screen
+                            main_screen *obj_main_screen = new main_screen();
+                            obj_main_screen->show();
+
+                            not_found = false; //if CPF and password were found it won't show an error message
+                            this->close();  //close login screnn
+                            break; //stop searching
+                        }
                     }
                 }
-            }
-            //if CPF and/or password are invalid
-            if(not_found && !blocked) {
-                ui->error_message->setText("Invalid informatioin");
-                count++; qDebug() << "TIMES: " << count ;
-            }
-            if(count == 3) {  //block staff
-                int staff_id;
+                //if CPF and/or password are invalid
+                if(not_found && !blocked) {
+                    ui->error_message->setText("Invalid information");
+                    count++;
+                }
+                if(count == 3) {  //block staff
+                    int staff_id = search_id_by_cpf(typed_cpf);
 
-                //search staff' id by using typed_cpf
-                QSqlQuery check_id;
-                check_id.exec("SELECT id FROM staff where cpf = '"+typed_cpf+"';"); //passing variable as a query
+                    //1 will be the code to the responsible staff when enter wrong information 3x
+                    block_staff_("1", staff_id, "CPF or password wrong. Typed 3x");
 
-                while(check_id.next()) { staff_id = check_id.value(0).toInt(); } qDebug() << staff_id << typed_cpf;
+                    //add by 1 the quantity of times the staff was blocked
+                    update_qnt_times_blocked(staff_id);
 
-                //1 will be the code to the responsible staff when enter wrong information 3x
-                block_staff_("1", staff_id , "CPF or password wrong. Typed 3x.");
-                count = 0;
-                ui->error_message->setText("Staff was blocked");
+                    count = 0;
+                    ui->error_message->setText("Invalid information. Staff was blocked");
+                }
+                if(count == 2) { ui->error_message->setText("Invalid information. You have one more chance"); }
             }
         }
         else { ui->error_message->setText("You're not connected"); }

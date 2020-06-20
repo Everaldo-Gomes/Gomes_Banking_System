@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     about.cpp \
+    add_customer_account.cpp \
     add_staff.cpp \
     block_staff.cpp \
     change_staff_info.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
 
 HEADERS += \
     about.h \
+    add_customer_account.h \
     add_staff.h \
     block_staff.h \
     change_staff_info.h \
@@ -48,6 +50,7 @@ HEADERS += \
 
 FORMS += \
     about.ui \
+    add_customer_account.ui \
     add_staff.ui \
     block_staff.ui \
     change_staff_info.ui \

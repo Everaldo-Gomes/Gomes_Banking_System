@@ -5,6 +5,7 @@ add_staff::add_staff(QWidget *parent) : QWidget(parent), ui(new Ui::add_staff) {
     ui->setupUi(this);
     ui->cpf_input->setValidator(new QDoubleValidator(0, 999999999999, 2, this)); //allow only numbers. need to be double becuase the range is too long
     ui->phone_input->setValidator(new QDoubleValidator(0, 999999999999, 2, this));
+    ui->error_message->setStyleSheet("QLabel{ color: red;}"); //error message color
 
     //date box
     ui->day_input->setRange(1,31);
@@ -43,15 +44,15 @@ void add_staff::on_pushButton_clicked() {
     QString full_data = typed_year + "-" + typed_month + "-" + typed_day;
 
     //verify if all field were filled
-    if(typed_name == "" || typed_address == "" || typed_phone == "" || typed_day == "" || typed_month == "" || typed_year == "" ||
+    if(typed_name == "" || typed_cpf == "" || typed_address == "" || typed_phone == "" ||
        typed_email == "" || typed_sector == "" || typed_password == "" || typed_confirm_password == "") {
-        ui->error_message->setText("Enter all needed information.");
+        ui->error_message->setText("Enter all needed information");
     }
 
     //verify if the typed passowords match
-    else if(typed_password != typed_confirm_password) { ui->error_message->setText("Passwords don't match."); }
+    else if(typed_password != typed_confirm_password) { ui->error_message->setText("Passwords don't match"); }
 
-    //ask for a confimation before sending the message
+    //ask for a confimation before adding
     else {
         QMessageBox::StandardButton confirmation;
         confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",

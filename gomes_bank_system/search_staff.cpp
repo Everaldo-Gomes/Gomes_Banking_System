@@ -42,7 +42,6 @@ void search_staff::on_search_button_clicked() {
     else if(connect_database()) {
         if(!search_cpf(typed_cpf)) {
 
-
             //check if the staff is blocked
             bool is_blocked = staff_blocked(typed_cpf);
             if(is_blocked) {
@@ -59,9 +58,9 @@ void search_staff::on_search_button_clicked() {
             get_info.exec("SELECT * FROM staff");
 
             while(get_info.next()) {
-                        found_id         = get_info.value(0).toString();
+                        found_id         = get_info.value(0).toString();  //declared at the top of the file
                 QString found_name       = get_info.value(1).toString();
-                        found_cpf        = get_info.value(2).toString();
+                        found_cpf        = get_info.value(2).toString();  //declared at the top of the file
                 QString found_address    = get_info.value(3).toString();
                 QString found_phone      = get_info.value(4).toString();
                 QString found_birth      = get_info.value(5).toString();

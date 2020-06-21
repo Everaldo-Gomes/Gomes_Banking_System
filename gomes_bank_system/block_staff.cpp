@@ -113,7 +113,7 @@ void block_staff::on_block_button_clicked() {
         if(connected_id.toInt() == found_staff_id_int) {
               QMessageBox::information(this,"Blocking not allowed", "You can not block yourself");
         }
-        //preventing an attendant from changing a manager
+        //preventing an attendant from blocking a manager
         else if(get_sector == "Manager" && connected_sector == "Attendant") {
             QMessageBox::information(this,"Blocking not allowed", "You can not block a Manager");
         }

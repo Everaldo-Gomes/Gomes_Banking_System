@@ -13,6 +13,17 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QLocale>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include "QPainter"
+#include <QPdfWriter>
+#include <QTextEdit>
+#include <QFile>
+#include <QFileInfo>
+#include <QFileDialog>
+#include <QTextStream>
+
+
 #include "database_connection.h"
 #include "global_variables.h"
 #include "login.h"

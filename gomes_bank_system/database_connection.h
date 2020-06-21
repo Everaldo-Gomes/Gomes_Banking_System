@@ -36,6 +36,9 @@ bool search_customer_cpf(QString typed_cpf); //verify if the customer already ex
 
 int search_customer_id_by_cpf(QString typed_cpf); //search id using the cpf
 
+QString get_acc_number(QString typed_cpf); //return the account number
+
+
 //==about account
 
 

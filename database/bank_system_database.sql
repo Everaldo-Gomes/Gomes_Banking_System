@@ -108,3 +108,13 @@ create table account (
        constraint pk_account_id primary key(id),
        constraint fk_customer_id foreign key(customer_id) references customer(id)
 );
+
+--opening receipt
+create table opening_receipt (
+      id	      serial,
+      account_number  integer      not null,
+      initial_amount  real         not null,
+      receipt_key     varchar(100) not null,
+      constraint pk_opening_receipt_accout primary key(account_number),
+      constraint fk_opening_receipt_account_number foreign key(account_number) references account(id)
+);

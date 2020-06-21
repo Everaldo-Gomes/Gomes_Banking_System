@@ -5,6 +5,7 @@ void add(int id, QString day, QString message);
 
 support::support(QWidget *parent) : QWidget(parent), ui(new Ui::support) {
     ui->setupUi(this);
+    ui->send_button->setDisabled(true);
 }
 
 support::~support() {
@@ -27,6 +28,10 @@ void support::on_support_message_textChanged() {
     ui->character_limit->setText(QString::number(len_to_show));  //convert to string
 
     ui->error_message->setText("");  //clean the error message
+
+    //only enable send button when some characters were typed
+    if(len_to_show <= 240) ui->send_button->setDisabled(false);
+    else { ui->send_button->setDisabled(true); }
 }
 
 //close button

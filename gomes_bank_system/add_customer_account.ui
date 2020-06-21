@@ -28,9 +28,9 @@
   <widget class="QLabel" name="error_message">
    <property name="geometry">
     <rect>
-     <x>102</x>
+     <x>42</x>
      <y>240</y>
-     <width>211</width>
+     <width>321</width>
      <height>21</height>
     </rect>
    </property>

@@ -126,11 +126,16 @@ int search_customer_id_by_cpf(QString typed_cpf) {
     int customer_id;
     QSqlQuery check_id;
     check_id.exec("SELECT id FROM customer WHERE cpf = '"+typed_cpf+"';"); //passing a string variable in a query
-
     while(check_id.next()) { customer_id = check_id.value(0).toInt(); }
     return customer_id;
 }
 
-
+QString get_acc_number(QString typed_cpf) {
+    QString acc_n;
+    QSqlQuery get_acc_num;
+    get_acc_num.exec("SELECT an.account_number FROM account an JOIN customer ct ON ct.id = an.customer_id WHERE ct.cpf = '"+typed_cpf+"';");
+    while(get_acc_num.next()) { acc_n = get_acc_num.value(0).toString(); }
+    return acc_n;
+}
 
 

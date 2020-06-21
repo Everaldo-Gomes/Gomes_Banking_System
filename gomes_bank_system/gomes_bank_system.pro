@@ -1,5 +1,6 @@
 QT       += core gui
 QT       += sql
+QT += printsupport #it has to be here to here to print a file
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

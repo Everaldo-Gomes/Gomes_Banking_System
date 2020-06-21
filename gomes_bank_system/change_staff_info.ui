@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Change staff's infomatioin</string>
+   <string>Change staff's infomation</string>
   </property>
   <widget class="QLabel" name="email_text">
    <property name="geometry">

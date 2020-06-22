@@ -31,15 +31,21 @@ int how_many_times_blocked(int staff_id); //return how many times a staff was bl
 void update_qnt_times_blocked(int staff_id); //add by 1 the number of times the staff was blocked
 
 
-//==about customer
+//==about customer & account
 bool search_customer_cpf(QString typed_cpf); //verify if the customer already exist
 
 int search_customer_id_by_cpf(QString typed_cpf); //search id using the cpf
 
 QString get_acc_number(QString typed_cpf); //return the account number
 
+void block_customer_acc(QString connected_id, int found_id_int, QString reason_message); //block customer/account and put information into the database
 
-//==about account
+bool customer_blocked(QString typed_cpf); //verify if the customer is blocked
 
+bool blocked_customer_acc_many_times(int blocked_customer_id); //verify if the staff already is in the may_times_customer_account blocked_ database
+
+int how_many_times_customer_acc_blocked(int customer_id);//return how many times the customer/account was blocked
+
+void update_qnt_customer_acc_blocked(int customer_id); //add by 1 the number of times the staff & account ware blocked
 
 #endif // DATABASE_CONNECTION_H

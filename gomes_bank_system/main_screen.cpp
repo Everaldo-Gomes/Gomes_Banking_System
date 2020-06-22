@@ -79,7 +79,8 @@ void main_screen::on_add_customer_account_button_clicked() {
 
 //open block customer/account window
 void main_screen::on_block_customer_account_button_clicked() {
-
+    block_customer_account *bca = new block_customer_account;
+    bca->show();
 }
 
 //open unlock customer/account window

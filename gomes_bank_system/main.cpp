@@ -11,9 +11,6 @@ int main(int argc, char *argv[]) {
     Login login_obj;
     login_obj.show();
 
-    add_customer_account *aca = new add_customer_account;
-    aca->show();
-
     //main_screen *obj_main_screen = new main_screen();
     //obj_main_screen->show();
 

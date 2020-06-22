@@ -15,6 +15,7 @@
 #include "unlock_staff.h"
 #include "change_staff_info.h"
 #include "add_customer_account.h"
+#include "block_customer_account.h"
 #include "support.h"
 #include "about.h"
 

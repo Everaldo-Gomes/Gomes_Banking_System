@@ -1,4 +1,4 @@
---staff table
+--staff
 create table staff (
       id	   serial, 
       full_name    varchar(100) not null,
@@ -14,7 +14,7 @@ create table staff (
       constraint pk_id primary key(id),
 );
 
---support table
+--support
 create table support (
        id	     serial,
        staff_id      integer	  not null,
@@ -24,7 +24,7 @@ create table support (
        constraint fk_staff_id foreign key(staff_id) references staff(id)
 );
 
---blocked staff table
+--blocked staff
 create table blocked_staff (
        id			serial,
        responsible_staff_id	integer		not null,
@@ -36,7 +36,7 @@ create table blocked_staff (
        constraint fk_blocked_staff_id foreign key(blocked_staff_id) references staff(id)
 );
 
---unlocked staff table
+--unlocked staff 
 create table unlocked_staff (
        id			serial,
        responsible_staff_id	integer		not null,
@@ -117,4 +117,25 @@ create table opening_receipt (
       receipt_key     varchar(100) not null,
       constraint pk_opening_receipt_accout primary key(account_number),
       constraint fk_opening_receipt_account_number foreign key(account_number) references account(id)
+);
+
+--blocked customer & account
+create table blocked_customer_account (
+       id			serial,
+       responsible_staff_id	integer		not null,
+       blocked_customer_id	integer       	not null,
+       blocking_day		timestamp     	not null,
+       reason			varchar(255) 	not null,
+       constraint pk_blocked_customer_id primary key(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id),
+       constraint fk_blocked_customer_id foreign key(blocked_customer_id) references customer(id)
+);
+
+--count_customer_account_tiems
+create table many_times_customer_account_blocked (
+       id               serial,
+       customer_id	integer		not null,
+       times		integer		not null,
+       constraint pk_count_blocked_customer_id primary key(customer_id),
+       constraint fk_count_blocked_account_id foreign key(customer_id) references customer(id)
 );

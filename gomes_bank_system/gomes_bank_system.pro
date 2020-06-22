@@ -21,6 +21,7 @@ SOURCES += \
     about.cpp \
     add_customer_account.cpp \
     add_staff.cpp \
+    block_customer_account.cpp \
     block_staff.cpp \
     change_staff_info.cpp \
     database_connection.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     about.h \
     add_customer_account.h \
     add_staff.h \
+    block_customer_account.h \
     block_staff.h \
     change_staff_info.h \
     database_connection.h \
@@ -53,6 +55,7 @@ FORMS += \
     about.ui \
     add_customer_account.ui \
     add_staff.ui \
+    block_customer_account.ui \
     block_staff.ui \
     change_staff_info.ui \
     login.ui \

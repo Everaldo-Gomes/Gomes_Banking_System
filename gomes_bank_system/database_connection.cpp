@@ -63,7 +63,7 @@ bool blocked_many_times(int blocked_staff_id) {
 
     //check if the id is was blocked at leat once
     QSqlQuery search_query;
-    search_query.exec("SELECT mt.staff_id from many_times_staff_blocked mt join staff st on st.id = mt.staff_id");
+    search_query.exec("SELECT mt.staff_id FROM many_times_staff_blocked mt JOIN staff st ON st.id = mt.staff_id");
 
     while(search_query.next()) {
         int found_id = search_query.value(0).toInt();
@@ -138,4 +138,70 @@ QString get_acc_number(QString typed_cpf) {
     return acc_n;
 }
 
+void block_customer_acc(QString connected_id, int found_id_int, QString reason_message) {
+    QSqlQuery block_staff_query;
+    block_staff_query.prepare("INSERT INTO blocked_customer_account (responsible_staff_id, blocked_customer_id, blocking_day, reason)"
+                              "VALUES (?,?,?,?)");
+    block_staff_query.addBindValue(connected_id.toInt());
+    block_staff_query.addBindValue(found_id_int);
+    block_staff_query.addBindValue(QDateTime::currentDateTime());
+    block_staff_query.addBindValue(reason_message);
+    block_staff_query.exec();
+}
 
+bool blocked_customer_acc_many_times(int blocked_customer_id) {
+    bool was_blocked = false;
+
+    //check if the id is was blocked at leat once
+    QSqlQuery search_query;
+    search_query.exec("SELECT mtcab.customer_id FROM many_times_customer_account_blocked mtcab JOIN customer ct ON ct.id = mtcab.customer_id");
+
+    while(search_query.next()) {
+        int found_id = search_query.value(0).toInt();
+        if(found_id == blocked_customer_id) {
+            was_blocked = true;
+            break;
+        }
+    }
+    return was_blocked;
+}
+
+bool customer_blocked(QString typed_cpf) {
+    bool is_blocked = false;
+    int customer_id = search_customer_id_by_cpf(typed_cpf);
+
+    //check if the id is in the blocked table
+    QSqlQuery id_blocked;
+    id_blocked.exec("SELECT bca.blocked_customer_id FROM blocked_customer_account bca join customer ct on ct.id = bca.blocked_customer_id;");
+
+    while(id_blocked.next()) {
+        int found_id = id_blocked.value(0).toInt();
+        if(found_id == customer_id) {
+            is_blocked = true;
+            break;
+        }
+    }
+    return is_blocked;
+}
+
+int how_many_times_customer_acc_blocked(int customer_id) {
+    QSqlQuery get_value;
+    get_value.prepare("SELECT times FROM many_times_customer_account_blocked WHERE customer_id = ?");
+    get_value.addBindValue(customer_id);
+    get_value.exec();
+
+    int count;
+    while(get_value.next()) { count = get_value.value(0).toInt(); }
+    return count;
+}
+
+void update_qnt_customer_acc_blocked(int customer_id) {
+    int count = how_many_times_customer_acc_blocked(customer_id);
+
+    //add by 1
+    QSqlQuery count_blocked;
+    count_blocked.prepare("UPDATE many_times_customer_account_blocked set times = ? WHERE customer_id = ?");
+    count_blocked.addBindValue(count+1);
+    count_blocked.addBindValue(customer_id);
+    count_blocked.exec();
+}

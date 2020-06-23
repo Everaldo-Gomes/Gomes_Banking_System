@@ -35,16 +35,10 @@ void main_screen::on_search_staff_button_clicked() {
     sf->show();
 }
 
-//open search customer window
-void main_screen::on_search_customer_button_clicked() {
-    search_customer *sc = new search_customer();
-    sc->show();
-}
-
-//open search account window
-void main_screen::on_search_account_button_clicked() {
-    search_account *sa = new search_account();
-    sa->show();
+//open search customer/account window
+void main_screen::on_search_customer_account_button_clicked() {
+    search_customer_account *sca = new search_customer_account;
+    sca->show();
 }
 
 //open add staff window
@@ -85,12 +79,14 @@ void main_screen::on_block_customer_account_button_clicked() {
 
 //open unlock customer/account window
 void main_screen::on_unlock_customer_account_button_clicked() {
-
+    unlock_customer_account *uca = new unlock_customer_account;
+    uca->show();
 }
 
 //open change info customer/account window
 void main_screen::on_change_info_customer_account_button_clicked() {
-
+    change_customer_info *cci = new change_customer_info;
+    cci->show();
 }
 
 //open about window
@@ -104,4 +100,3 @@ void main_screen::on_support_button_clicked() {
     support *s = new support();
     s->show();
 }
-

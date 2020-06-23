@@ -139,3 +139,40 @@ create table many_times_customer_account_blocked (
        constraint pk_count_blocked_customer_id primary key(customer_id),
        constraint fk_count_blocked_account_id foreign key(customer_id) references customer(id)
 );
+
+--unlock customer_account
+create table unlocked_customer_account (
+       id			serial,
+       responsible_staff_id	integer		not null,
+       unlocked_customer_id	integer       	not null,
+       unlocking_day		timestamp     	not null,
+       reason			varchar(255) 	not null,
+       constraint pk_unlocked_customer_id primary key(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id),
+       constraint fk_unlocked_customer_account_id foreign key(unlocked_customer_id) references customer(id)
+);
+
+--change_customer_info
+create table change_customer_info (
+       id			serial,
+       responsible_staff_id 	integer 	not null,
+       changed_customer_id	integer		not null,
+       changing_day 		timestamp 	not null,
+       reason 			varchar(255) 	not null,
+       constraint pk_change_customer_info_id primary key(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id),
+       constraint fk_changed_customer_id foreign key(changed_customer_id) references customer(id)
+);
+
+--previous_customer_information
+create table previous_customer_information (
+       id    			serial,
+       change_table_id 		integer		not null,
+       full_name    		varchar(100) 	not null,
+       address      		varchar(50) 	not null,
+       phone_number 		varchar(14) 	not null,
+       email 	   		varchar(50) 	not null,
+       password 	   	varchar(100) 	not null,
+       constraint pk_previous_customer_info primary key(id),
+       constraint fk_change_table_customer_id foreign key(change_table_id) references change_customer_info(id)
+);

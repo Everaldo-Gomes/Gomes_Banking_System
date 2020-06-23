@@ -23,15 +23,16 @@ SOURCES += \
     add_staff.cpp \
     block_customer_account.cpp \
     block_staff.cpp \
+    change_customer_info.cpp \
     change_staff_info.cpp \
     database_connection.cpp \
     main.cpp \
     login.cpp \
     main_screen.cpp \
-    search_account.cpp \
-    search_customer.cpp \
+    search_customer_account.cpp \
     search_staff.cpp \
     support.cpp \
+    unlock_customer_account.cpp \
     unlock_staff.cpp
 
 HEADERS += \
@@ -40,15 +41,16 @@ HEADERS += \
     add_staff.h \
     block_customer_account.h \
     block_staff.h \
+    change_customer_info.h \
     change_staff_info.h \
     database_connection.h \
     global_variables.h \
     login.h \
     main_screen.h \
-    search_account.h \
-    search_customer.h \
+    search_customer_account.h \
     search_staff.h \
     support.h \
+    unlock_customer_account.h \
     unlock_staff.h
 
 FORMS += \
@@ -57,13 +59,14 @@ FORMS += \
     add_staff.ui \
     block_customer_account.ui \
     block_staff.ui \
+    change_customer_info.ui \
     change_staff_info.ui \
     login.ui \
     main_screen.ui \
-    search_account.ui \
-    search_customer.ui \
+    search_customer_account.ui \
     search_staff.ui \
     support.ui \
+    unlock_customer_account.ui \
     unlock_staff.ui
 
 # Default rules for deployment.

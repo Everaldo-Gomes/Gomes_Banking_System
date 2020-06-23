@@ -8,14 +8,15 @@
 #include <global_variables.h>
 #include "login.h"
 #include "search_staff.h"
-#include "search_customer.h"
-#include "search_account.h"
+#include "search_customer_account.h"
 #include "add_staff.h"
 #include "block_staff.h"
 #include "unlock_staff.h"
 #include "change_staff_info.h"
 #include "add_customer_account.h"
 #include "block_customer_account.h"
+#include "unlock_customer_account.h"
+#include "change_customer_info.h"
 #include "support.h"
 #include "about.h"
 
@@ -59,6 +60,8 @@ private slots:
     void on_unlock_customer_account_button_clicked();
 
     void on_change_info_customer_account_button_clicked();
+
+    void on_search_customer_account_button_clicked();
 
 private:
     Ui::main_screen *ui;

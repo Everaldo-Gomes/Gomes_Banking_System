@@ -248,7 +248,7 @@ void change_staff_info::on_change_button_clicked() {
                             QString old_pw = l->encrypt_password(ui->current_password_input->text());
                             change_info.addBindValue(old_pw);
                         }
-                        change_info.addBindValue(found_staff_id);  //where parameter
+                        change_info.addBindValue(found_staff_id);  //where query parameter
                         change_info.exec();
 
                         //show a message that the staff's info has been changed

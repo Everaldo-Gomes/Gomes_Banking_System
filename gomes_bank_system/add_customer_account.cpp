@@ -127,7 +127,7 @@ void add_customer_account::on_add_button_clicked() {
                  save_receipt.exec();
 
                  //show a message that the customer has been added and print the proof
-                 QMessageBox::information(this,"About Customer", "The customer has been created\nand the account has been opened.\nPress Ok to print the proof.");
+                 QMessageBox::information(this,"About Customer", "The customer has been created\nand the account has been opened.\nPress Ok to print the opening receipt.");
 
                  //print the proof
                  QString account_number = get_acc_number(typed_cpf);  //String because it's easier to print in the proof
@@ -147,7 +147,7 @@ void add_customer_account::on_add_button_clicked() {
                                "<p>Amount:  R$ "+typed_amount+"</p>"
                                "<p>Date:    "+current_time+"</p>"
                                "<p>Responsible Staff:  "+connected_staff+"</p>"
-                               "<p>Opening receipt:    "+key+"</p>"
+                               "<p>Opening receipt Key:  "+key+"</p>"
                                "<pre>");
                  proof.setPageSize(printer.pageRect().size()); //hide the page number
                  proof.print(&printer);

@@ -205,3 +205,15 @@ void update_qnt_customer_acc_blocked(int customer_id) {
     count_blocked.addBindValue(customer_id);
     count_blocked.exec();
 }
+
+QString get_account_amount(int cus_id) {
+    QString amount;
+    QSqlQuery get_amount;
+    get_amount.prepare("SELECT amount FROM account WHERE customer_id = ?");
+    get_amount.addBindValue(cus_id);
+    get_amount.exec();
+
+    while(get_amount.next()) { amount = get_amount.value(0).toString(); }
+
+    return amount;
+}

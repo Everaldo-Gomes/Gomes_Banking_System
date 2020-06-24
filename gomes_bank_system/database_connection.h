@@ -48,4 +48,6 @@ int how_many_times_customer_acc_blocked(int customer_id);//return how many times
 
 void update_qnt_customer_acc_blocked(int customer_id); //add by 1 the number of times the staff & account ware blocked
 
+QString get_account_amount(int cus_id); //return the amount
+
 #endif // DATABASE_CONNECTION_H

@@ -25,6 +25,7 @@ SOURCES += \
     block_staff.cpp \
     change_customer_info.cpp \
     change_staff_info.cpp \
+    check_balance.cpp \
     database_connection.cpp \
     main.cpp \
     login.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     block_staff.h \
     change_customer_info.h \
     change_staff_info.h \
+    check_balance.h \
     database_connection.h \
     global_variables.h \
     login.h \
@@ -61,6 +63,7 @@ FORMS += \
     block_staff.ui \
     change_customer_info.ui \
     change_staff_info.ui \
+    check_balance.ui \
     login.ui \
     main_screen.ui \
     search_customer_account.ui \

@@ -8,8 +8,8 @@ main_screen::main_screen(QWidget *parent) : QWidget(parent), ui(new Ui::main_scr
     ui->tabWidget->setTabText(0, "GBS");
     ui->tabWidget->setTabText(1, "Search");
     ui->tabWidget->setTabText(2, "Staff");
-    ui->tabWidget->setTabText(3, "Customer - Account");
-    ui->tabWidget->setTabText(4, "Money");
+    ui->tabWidget->setTabText(3, "Money");
+    ui->tabWidget->setTabText(4, "Customer - Account");
     ui->tabWidget->setTabText(5, "Help");
 
     //info about the connected staff
@@ -87,6 +87,32 @@ void main_screen::on_unlock_customer_account_button_clicked() {
 void main_screen::on_change_info_customer_account_button_clicked() {
     change_customer_info *cci = new change_customer_info;
     cci->show();
+}
+
+//check balance option
+void main_screen::on_check_balance_button_clicked() {
+    check_balance *cb = new check_balance;
+    cb->show();
+}
+
+//deposit option
+void main_screen::on_deposit_button_clicked() {
+
+}
+
+//withdrawal option
+void main_screen::on_withdrawal_button_clicked() {
+
+}
+
+//transfer option
+void main_screen::on_transfer_button_clicked() {
+
+}
+
+//loan option
+void main_screen::on_loan_button_clicked() {
+
 }
 
 //open about window

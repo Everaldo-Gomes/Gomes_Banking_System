@@ -97,22 +97,26 @@ void main_screen::on_check_balance_button_clicked() {
 
 //deposit option
 void main_screen::on_deposit_button_clicked() {
-
+    deposit *d = new deposit;
+    d->show();
 }
 
 //withdrawal option
 void main_screen::on_withdrawal_button_clicked() {
-
+    withdrawal *w = new withdrawal;
+    w->show();
 }
 
 //transfer option
 void main_screen::on_transfer_button_clicked() {
-
+    transfer *t = new transfer;
+    t->show();
 }
 
 //loan option
 void main_screen::on_loan_button_clicked() {
-
+    loan *l = new loan;
+    l->show();
 }
 
 //open about window

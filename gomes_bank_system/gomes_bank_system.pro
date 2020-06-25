@@ -27,14 +27,18 @@ SOURCES += \
     change_staff_info.cpp \
     check_balance.cpp \
     database_connection.cpp \
+    deposit.cpp \
+    loan.cpp \
     main.cpp \
     login.cpp \
     main_screen.cpp \
     search_customer_account.cpp \
     search_staff.cpp \
     support.cpp \
+    transfer.cpp \
     unlock_customer_account.cpp \
-    unlock_staff.cpp
+    unlock_staff.cpp \
+    withdrawal.cpp
 
 HEADERS += \
     about.h \
@@ -46,14 +50,18 @@ HEADERS += \
     change_staff_info.h \
     check_balance.h \
     database_connection.h \
+    deposit.h \
     global_variables.h \
+    loan.h \
     login.h \
     main_screen.h \
     search_customer_account.h \
     search_staff.h \
     support.h \
+    transfer.h \
     unlock_customer_account.h \
-    unlock_staff.h
+    unlock_staff.h \
+    withdrawal.h
 
 FORMS += \
     about.ui \
@@ -64,13 +72,17 @@ FORMS += \
     change_customer_info.ui \
     change_staff_info.ui \
     check_balance.ui \
+    deposit.ui \
+    loan.ui \
     login.ui \
     main_screen.ui \
     search_customer_account.ui \
     search_staff.ui \
     support.ui \
+    transfer.ui \
     unlock_customer_account.ui \
-    unlock_staff.ui
+    unlock_staff.ui \
+    withdrawal.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

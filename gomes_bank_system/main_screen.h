@@ -18,6 +18,10 @@
 #include "unlock_customer_account.h"
 #include "change_customer_info.h"
 #include "check_balance.h"
+#include "deposit.h"
+#include "withdrawal.h"
+#include "transfer.h"
+#include "loan.h"
 #include "support.h"
 #include "about.h"
 

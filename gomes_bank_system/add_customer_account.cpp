@@ -41,23 +41,14 @@ void add_customer_account::on_add_button_clicked() {
     QString typed_amount           = ui->amount_input->text();
     double amount                  = typed_amount.toDouble();
 
-    //verify if the amount is correctly
-    bool accept_value = false;
-    for(int i = 0; i < typed_amount.length(); i++) {
-        if(typed_amount[i] != ".") { continue; }
-        else {
-            accept_value = true;
-            break;
-        }
-    }
-
     //verify if all field were filled
     if(typed_name == "" || typed_cpf == "" || typed_address == "" || typed_phone == "" || typed_amount == "" ||
       typed_email == "" || typed_password == "" || typed_confirm_password == "") {
         ui->error_message->setText("Enter all needed information");
     }
 
-    else if(!accept_value) { ui->error_message->setText("The value need to have decimal point. Ex: 50.00"); }
+    //verify if the amount is correctly
+    else if(!has_decimal_point(typed_amount)) { ui->error_message->setText("The value need to have decimal point. Ex: 50.00"); }
 
     //verify if the amount given is the minimum accepted
     else if(amount < 50.00) {

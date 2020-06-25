@@ -50,4 +50,9 @@ void update_qnt_customer_acc_blocked(int customer_id); //add by 1 the number of 
 
 QString get_account_amount(int cus_id); //return the amount
 
+void add_amount(double amount, QString typed_cpf); //add some value in the amount
+
+//not related to the database (need find another place to declare it)
+bool has_decimal_point(QString typed_amount); //check if the number has decimal point
+
 #endif // DATABASE_CONNECTION_H

@@ -200,7 +200,7 @@ void update_qnt_customer_acc_blocked(int customer_id) {
 
     //add by 1
     QSqlQuery count_blocked;
-    count_blocked.prepare("UPDATE many_times_customer_account_blocked set times = ? WHERE customer_id = ?");
+    count_blocked.prepare("UPDATE many_times_customer_account_blocked SET times = ? WHERE customer_id = ?");
     count_blocked.addBindValue(count+1);
     count_blocked.addBindValue(customer_id);
     count_blocked.exec();
@@ -214,6 +214,20 @@ QString get_account_amount(int cus_id) {
     get_amount.exec();
 
     while(get_amount.next()) { amount = get_amount.value(0).toString(); }
-
     return amount;
+}
+
+void add_amount(double amount, QString typed_cpf) {
+    QSqlQuery add;
+    add.prepare("UPDATE account SET amount = ? WHERE account_number = ?");
+    add.addBindValue(amount);
+    add.addBindValue(get_acc_number(typed_cpf));
+    add.exec();
+}
+
+bool has_decimal_point(QString typed_amount) {
+    for(int i = 0; i < typed_amount.length(); i++) {
+        if(typed_amount[i] != ".") { continue; }
+        else { return true;}
+    }
 }

@@ -176,3 +176,19 @@ create table previous_customer_information (
        constraint pk_previous_customer_info primary key(id),
        constraint fk_change_table_customer_id foreign key(change_table_id) references change_customer_info(id)
 );
+
+--deposit receipt
+create table deposit_receipt (
+       id		    serial,
+       customer_id          integer      not null,
+       account_id           integer      not null,
+       amount 	  	    real         not null,
+       who_did_name         varchar(100) not null,
+       who_did_cpf          varchar(11)  not null,
+       responsible_staff_id integer      not null,
+       deposit_day          timestamp 	 not null,
+       deposit_receipt_key  varchar(100) not null,
+       constraint pk_deposit_id primary key(id),
+       constraint fk_acc_id foreign key(account_id) references account(id),
+       constraint fk_responsible_staff foreign key(responsible_staff_id) references staff(id)
+);

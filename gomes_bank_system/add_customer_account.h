@@ -23,7 +23,6 @@
 #include <QFileDialog>
 #include <QTextStream>
 
-
 #include "database_connection.h"
 #include "global_variables.h"
 #include "login.h"

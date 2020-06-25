@@ -49,15 +49,8 @@ void check_balance::on_search_button_clicked() {
 
                     //verify if the amount has decimal points
                     QString found_amount = get_account_amount(search_customer_id_by_cpf(typed_cpf));
-                    bool accept_value = false;
-                    for(int i = 0; i < found_amount.length(); i++) {
-                        if(found_amount[i] != ".") { continue; }
-                        else {
-                            accept_value = true;
-                            break;
-                        }
-                    }
-                    if(!accept_value) { ui->amount_output->setText("R$ " + found_amount + ".00"); }
+
+                    if(!has_decimal_point(found_amount)) { ui->amount_output->setText("R$ " + found_amount + ".00"); }
                     else { ui->amount_output->setText("R$ " + found_amount); }
 
                     break;

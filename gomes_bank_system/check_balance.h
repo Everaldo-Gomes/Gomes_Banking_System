@@ -2,7 +2,6 @@
 #define CHECK_BALANCE_H
 
 #include <QWidget>
-
 #include <QMessageBox>
 #include <QDebug>
 #include "database_connection.h"

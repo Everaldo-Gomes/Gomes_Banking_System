@@ -10,9 +10,7 @@ search_staff::search_staff(QWidget *parent) : QWidget(parent), ui(new Ui::search
     ui->cpf_field_input->setFocus();
 }
 
-search_staff::~search_staff() {
-    delete ui;
-}
+search_staff::~search_staff() { delete ui; }
 
 //clean info
 void search_staff::on_cpf_field_input_textChanged() {
@@ -101,5 +99,3 @@ void search_staff::on_search_button_clicked() {
     else { ui->error_message->setText("You re not connected"); }
 
 }
-
-

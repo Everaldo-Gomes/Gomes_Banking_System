@@ -12,14 +12,10 @@ unlock_customer_account::unlock_customer_account(QWidget *parent) : QWidget(pare
     ui->cpf_field_input->setFocus();
 }
 
-unlock_customer_account::~unlock_customer_account() {
-    delete ui;
-}
+unlock_customer_account::~unlock_customer_account() { delete ui; }
 
 //close button
-void unlock_customer_account::on_cancel_button_clicked() {
-    this->close();
-}
+void unlock_customer_account::on_cancel_button_clicked() { this->close(); }
 
 //clean info when change cpf
 void unlock_customer_account::on_cpf_field_input_textChanged() {
@@ -99,8 +95,7 @@ void unlock_customer_account::on_search_button_clicked() {
 //unlock button
 void unlock_customer_account::on_unlock_button_clicked() {
     QMessageBox::StandardButton confirmation;
-    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                  QMessageBox::Yes | QMessageBox::No);
+    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
     if(confirmation == QMessageBox::No) { /*do nothing*/ }
     else {

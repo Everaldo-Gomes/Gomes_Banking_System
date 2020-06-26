@@ -138,6 +138,15 @@ QString get_acc_number(QString typed_cpf) {
     return acc_n;
 }
 
+int get_acc_id(int cust_id) {
+    int acc_id;
+    QSqlQuery get_acc_id;
+    get_acc_id.prepare("select acc.id from account acc join customer ct on ct.id = acc.customer_id where acc.customer_id = ?");
+    get_acc_id.addBindValue(cust_id);
+    get_acc_id.exec();
+    while(get_acc_id.next()) { acc_id = get_acc_id.value(0).toInt(); }
+    return acc_id;
+}
 void block_customer_acc(QString connected_id, int found_id_int, QString reason_message) {
     QSqlQuery block_staff_query;
     block_staff_query.prepare("INSERT INTO blocked_customer_account (responsible_staff_id, blocked_customer_id, blocking_day, reason)"
@@ -228,6 +237,7 @@ void add_amount(double amount, QString typed_cpf) {
 bool has_decimal_point(QString typed_amount) {
     for(int i = 0; i < typed_amount.length(); i++) {
         if(typed_amount[i] != ".") { continue; }
-        else { return true;}
+        else { return true; }
     }
+    return false;
 }

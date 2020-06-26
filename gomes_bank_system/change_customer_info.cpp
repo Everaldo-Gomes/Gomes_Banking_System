@@ -24,9 +24,7 @@ change_customer_info::change_customer_info(QWidget *parent) : QWidget(parent), u
     ui->error_message_pw->setStyleSheet("QLabel{ color: red;}");
 }
 
-change_customer_info::~change_customer_info() {
-    delete ui;
-}
+change_customer_info::~change_customer_info() { delete ui; }
 
 //clean all information when change cpf
 void change_customer_info::on_cpf_field_input_textChanged() {
@@ -49,9 +47,7 @@ void change_customer_info::on_cpf_field_input_textChanged() {
 }
 
 //cancel button
-void change_customer_info::on_cancel_button_clicked() {
-    this->close();
-}
+void change_customer_info::on_cancel_button_clicked() { this->close(); }
 
 //search button
 void change_customer_info::on_search_button_clicked() {
@@ -134,8 +130,7 @@ void change_customer_info::on_change_button_clicked() {
     else {
         //confirmation box
         QMessageBox::StandardButton confirmation;
-        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                      QMessageBox::Yes | QMessageBox::No);
+        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
         else {
@@ -272,16 +267,9 @@ void change_customer_info::on_reason_message_input_textChanged() {
     else { ui->change_button->setDisabled(true); }
 }
 
-
 //clean password message error when type on password field
-void change_customer_info::on_current_password_input_textChanged() {
-    ui->error_message_pw->setText("");
-}
+void change_customer_info::on_current_password_input_textChanged() { ui->error_message_pw->setText(""); }
 
-void change_customer_info::on_password_input_textChanged() {
-    ui->error_message_pw->setText("");
-}
+void change_customer_info::on_password_input_textChanged()         { ui->error_message_pw->setText(""); }
 
-void change_customer_info::on_confirm_passowrd_input_textChanged() {
-    ui->error_message_pw->setText("");
-}
+void change_customer_info::on_confirm_passowrd_input_textChanged() { ui->error_message_pw->setText(""); }

@@ -32,9 +32,7 @@ change_staff_info::change_staff_info(QWidget *parent) : QWidget(parent), ui(new 
     ui->error_message_pw->setStyleSheet("QLabel{ color: red;}");
 }
 
-change_staff_info::~change_staff_info() {
-    delete ui;
-}
+change_staff_info::~change_staff_info() { delete ui; }
 
 //clean all information when change cpf
 void change_staff_info::on_cpf_field_input_textChanged() {
@@ -57,9 +55,7 @@ void change_staff_info::on_cpf_field_input_textChanged() {
 }
 
 //close button
-void change_staff_info::on_cancel_button_clicked() {
-    this->close();
-}
+void change_staff_info::on_cancel_button_clicked() { this->close(); }
 
 //search button
 void change_staff_info::on_search_button_clicked() {
@@ -145,8 +141,7 @@ void change_staff_info::on_change_button_clicked() {
     else {
         //confirmation box
         QMessageBox::StandardButton confirmation;
-        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                      QMessageBox::Yes | QMessageBox::No);
+        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
         else {
@@ -285,14 +280,8 @@ void change_staff_info::on_reason_message_input_textChanged() {
 }
 
 //clean error message_pw when typed
-void change_staff_info::on_password_input_textChanged() {
-    ui->error_message_pw->setText("");
-}
+void change_staff_info::on_password_input_textChanged()         { ui->error_message_pw->setText(""); }
 
-void change_staff_info::on_confirm_passowrd_input_textChanged() {
-    ui->error_message_pw->setText("");
-}
+void change_staff_info::on_confirm_passowrd_input_textChanged() { ui->error_message_pw->setText(""); }
 
-void change_staff_info::on_current_password_input_textChanged() {
-       ui->error_message_pw->setText("");
-}
+void change_staff_info::on_current_password_input_textChanged() { ui->error_message_pw->setText(""); }

@@ -8,9 +8,7 @@ support::support(QWidget *parent) : QWidget(parent), ui(new Ui::support) {
     ui->send_button->setDisabled(true);
 }
 
-support::~support() {
-    delete ui;
-}
+support::~support() { delete ui; }
 
 //text area
 void support::on_support_message_textChanged() {
@@ -48,8 +46,7 @@ void support::on_send_button_clicked() {
     else {
         //ask for a confimation before sending the message
         QMessageBox::StandardButton confirmation;
-        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                      QMessageBox::Yes | QMessageBox::No);
+        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
         else if(connect_database()) {         //store information

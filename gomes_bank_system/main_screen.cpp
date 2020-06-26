@@ -18,9 +18,7 @@ main_screen::main_screen(QWidget *parent) : QWidget(parent), ui(new Ui::main_scr
     ui->connected_staff_sector_value->setText(connected_sector);
 }
 
-main_screen::~main_screen() {
-    delete ui;
-}
+main_screen::~main_screen() { delete ui; }
 
 //logout button
 void main_screen::on_logoutbutton_clicked() {

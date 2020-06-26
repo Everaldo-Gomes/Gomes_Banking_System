@@ -13,14 +13,10 @@ block_staff::block_staff(QWidget *parent) : QWidget(parent), ui(new Ui::block_st
     ui->cpf_field_input->setFocus();
 }
 
-block_staff::~block_staff() {
-    delete ui;
-}
+block_staff::~block_staff() { delete ui; }
 
 //close button
-void block_staff::on_cancel_button_clicked() {
-    this->close();
-}
+void block_staff::on_cancel_button_clicked() { this->close(); }
 
 //clean all information when change cpf
 void block_staff::on_cpf_field_input_textChanged() {
@@ -102,8 +98,7 @@ void block_staff::on_block_button_clicked() {
 
     //ask for a confirmation
     QMessageBox::StandardButton confirmation;
-    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                  QMessageBox::Yes | QMessageBox::No);
+    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
     if(confirmation == QMessageBox::No) { /*do nothing*/ }
     else {

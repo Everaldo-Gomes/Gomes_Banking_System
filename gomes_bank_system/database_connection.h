@@ -38,13 +38,15 @@ int search_customer_id_by_cpf(QString typed_cpf); //search id using the cpf
 
 QString get_acc_number(QString typed_cpf); //return the account number
 
+int get_acc_id(int cust_id); //return the acount id
+
 void block_customer_acc(QString connected_id, int found_id_int, QString reason_message); //block customer/account and put information into the database
 
 bool customer_blocked(QString typed_cpf); //verify if the customer is blocked
 
 bool blocked_customer_acc_many_times(int blocked_customer_id); //verify if the staff already is in the may_times_customer_account blocked_ database
 
-int how_many_times_customer_acc_blocked(int customer_id);//return how many times the customer/account was blocked
+int how_many_times_customer_acc_blocked(int customer_id); //return how many times the customer/account was blocked
 
 void update_qnt_customer_acc_blocked(int customer_id); //add by 1 the number of times the staff & account ware blocked
 
@@ -52,7 +54,8 @@ QString get_account_amount(int cus_id); //return the amount
 
 void add_amount(double amount, QString typed_cpf); //add some value in the amount
 
-//not related to the database (need find another place to declare it)
+
+//not related to the database (need to find another place to declare it)
 bool has_decimal_point(QString typed_amount); //check if the number has decimal point
 
 #endif // DATABASE_CONNECTION_H

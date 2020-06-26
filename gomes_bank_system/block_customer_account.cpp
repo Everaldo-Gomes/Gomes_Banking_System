@@ -12,9 +12,7 @@ block_customer_account::block_customer_account(QWidget *parent) : QWidget(parent
     ui->cpf_field_input->setFocus();
 }
 
-block_customer_account::~block_customer_account() {
-    delete ui;
-}
+block_customer_account::~block_customer_account() { delete ui; }
 
 //clean all information when change cpf
 void block_customer_account::on_cpf_field_input_textChanged() {
@@ -100,8 +98,7 @@ void block_customer_account::on_block_button_clicked() {
 
     //ask for a confirmation
     QMessageBox::StandardButton confirmation;
-    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                  QMessageBox::Yes | QMessageBox::No);
+    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
     if(confirmation == QMessageBox::No) { /*do nothing*/ }
     else {

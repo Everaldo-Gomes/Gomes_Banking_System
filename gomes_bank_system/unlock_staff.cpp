@@ -13,9 +13,7 @@ unlock_staff::unlock_staff(QWidget *parent) : QWidget(parent), ui(new Ui::unlock
     ui->cpf_field_input->setFocus();
 }
 
-unlock_staff::~unlock_staff() {
-    delete ui;
-}
+unlock_staff::~unlock_staff() { delete ui; }
 
 //clean all information when change cpf
 void unlock_staff::on_cpf_field_input_textChanged() {
@@ -97,8 +95,7 @@ void unlock_staff::on_search_button_clicked() {
 void unlock_staff::on_unlock_button_clicked() {
 
     QMessageBox::StandardButton confirmation;
-    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                  QMessageBox::Yes | QMessageBox::No);
+    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
     if(confirmation == QMessageBox::No) { /*do nothing*/ }
     else {

@@ -14,23 +14,15 @@ Login::Login(QWidget *parent) : QMainWindow(parent), ui(new Ui::Login) {
     ui->error_message->setStyleSheet("QLabel{ color: red;}");  //error message color
 }
 
-Login::~Login() {
-    delete ui;
-}
+Login::~Login() { delete ui; }
 
 //erase the error message (if any) when changing texxt on either cpf or password field
-void Login::on_cpf_field_textEdited() {
-    ui->error_message->setText("");
-}
+void Login::on_cpf_field_textEdited() { ui->error_message->setText(""); }
 
-void Login::on_password_field_textEdited() {
-    ui->error_message->setText("");
-}
+void Login::on_password_field_textEdited() { ui->error_message->setText(""); }
 
 //cancel button
-void Login::on_cancel_button_clicked() {
- this->close();
-}
+void Login::on_cancel_button_clicked() { this->close(); }
 
 //login button
 void Login::on_login_button_clicked() {

@@ -8,14 +8,10 @@ check_balance::check_balance(QWidget *parent) : QWidget(parent), ui(new Ui::chec
     ui->cpf_field_input->setFocus();
 }
 
-check_balance::~check_balance() {
-    delete ui;
-}
+check_balance::~check_balance() { delete ui; }
 
 //close button
-void check_balance::on_close_button_clicked() {
-    this->close();
-}
+void check_balance::on_close_button_clicked() { this->close(); }
 
 //clean of information
 void check_balance::on_cpf_field_input_textChanged() {

@@ -10,14 +10,10 @@ search_customer_account::search_customer_account(QWidget *parent) : QWidget(pare
     ui->cpf_field_input->setFocus();
 }
 
-search_customer_account::~search_customer_account() {
-    delete ui;
-}
+search_customer_account::~search_customer_account() { delete ui; }
 
 //close button
-void search_customer_account::on_close_button_clicked() {
-    this->close();
-}
+void search_customer_account::on_close_button_clicked() { this->close(); }
 
 //clean all information when change cpf
 void search_customer_account::on_cpf_field_input_textChanged() {
@@ -101,5 +97,3 @@ void search_customer_account::on_search_button_clicked() {
     }
     else { ui->error_message->setText("You re not connected"); }
 }
-
-

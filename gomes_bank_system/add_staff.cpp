@@ -18,14 +18,10 @@ add_staff::add_staff(QWidget *parent) : QWidget(parent), ui(new Ui::add_staff) {
     ui->sector_input->addItem("Attendant");
 }
 
-add_staff::~add_staff() {
-    delete ui;
-}
+add_staff::~add_staff() { delete ui; }
 
 //close button
-void add_staff::on_pushButton_2_clicked() {
-    this->close();
-}
+void add_staff::on_pushButton_2_clicked() { this->close(); }
 
 //add button
 void add_staff::on_pushButton_clicked() {
@@ -55,8 +51,7 @@ void add_staff::on_pushButton_clicked() {
     //ask for a confimation before adding
     else {
         QMessageBox::StandardButton confirmation;
-        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                      QMessageBox::Yes | QMessageBox::No);
+        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
 
@@ -113,46 +108,24 @@ void add_staff::on_pushButton_clicked() {
 */
 
 //clean error message when change any value
-void add_staff::on_name_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_name_input_textChanged()             { ui->error_message->setText(""); }
 
-void add_staff::on_cpf_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_cpf_input_textChanged()              { ui->error_message->setText(""); }
 
-void add_staff::on_phone_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_phone_input_textChanged()            { ui->error_message->setText(""); }
 
-void add_staff::on_address_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_address_input_textChanged()          { ui->error_message->setText(""); }
 
-void add_staff::on_email_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_email_input_textChanged()            { ui->error_message->setText(""); }
 
-void add_staff::on_password_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_password_input_textChanged()         { ui->error_message->setText(""); }
 
-void add_staff::on_confirm_passowrd_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_confirm_passowrd_input_textChanged() { ui->error_message->setText(""); }
 
-void add_staff::on_sector_input_currentTextChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_sector_input_currentTextChanged()    { ui->error_message->setText(""); }
 
-void add_staff::on_day_input_valueChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_day_input_valueChanged()             { ui->error_message->setText(""); }
 
-void add_staff::on_month_input_valueChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_month_input_valueChanged()           { ui->error_message->setText(""); }
 
-void add_staff::on_year_input_valueChanged() {
-    ui->error_message->setText("");
-}
+void add_staff::on_year_input_valueChanged()            { ui->error_message->setText(""); }

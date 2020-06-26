@@ -15,14 +15,10 @@ add_customer_account::add_customer_account(QWidget *parent) : QWidget(parent), u
     ui->year_input->setRange(1950,2020);
 }
 
-add_customer_account::~add_customer_account() {
-    delete ui;
-}
+add_customer_account::~add_customer_account() { delete ui; }
 
 //close window
-void add_customer_account::on_cancel_button_clicked() {
-    this->close();
-}
+void add_customer_account::on_cancel_button_clicked() { this->close(); }
 
 //add button
 void add_customer_account::on_add_button_clicked() {
@@ -61,8 +57,7 @@ void add_customer_account::on_add_button_clicked() {
     //ask for a confimation before adding
     else {
         QMessageBox::StandardButton confirmation;
-        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                      QMessageBox::Yes | QMessageBox::No);
+        confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
         if(confirmation == QMessageBox::No) { /*do nothing*/ }
 
@@ -165,35 +160,18 @@ void add_customer_account::on_add_button_clicked() {
 }
 
 //clean message error when change any filed
-void add_customer_account::on_name_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_customer_account::on_name_input_textChanged()                     { ui->error_message->setText(""); }
 
-void add_customer_account::on_cpf_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_customer_account::on_cpf_input_textChanged()                      { ui->error_message->setText(""); }
 
-void add_customer_account::on_phone_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_customer_account::on_phone_input_textChanged()                    { ui->error_message->setText(""); }
 
-void add_customer_account::on_address_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_customer_account::on_address_input_textChanged()                  { ui->error_message->setText(""); }
 
-void add_customer_account::on_email_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_customer_account::on_email_input_textChanged()                    { ui->error_message->setText(""); }
 
-void add_customer_account::on_account_password_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_customer_account::on_account_password_input_textChanged()         { ui->error_message->setText(""); }
 
-void add_customer_account::on_account_confirm_passowrd_input_textChanged() {
-    ui->error_message->setText("");
-}
+void add_customer_account::on_account_confirm_passowrd_input_textChanged() { ui->error_message->setText(""); }
 
-void add_customer_account::on_amount_input_textChanged() {
-    ui->error_message->setText("");
-}
-
+void add_customer_account::on_amount_input_textChanged()                   { ui->error_message->setText(""); }

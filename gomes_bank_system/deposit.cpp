@@ -14,14 +14,10 @@ deposit::deposit(QWidget *parent) : QWidget(parent), ui(new Ui::deposit) {
     ui->deposit_button->setDisabled(true);
 }
 
-deposit::~deposit() {
-    delete ui;
-}
+deposit::~deposit() { delete ui; }
 
 //close button
-void deposit::on_cancel_button_clicked() {
-    this->close();
-}
+void deposit::on_cancel_button_clicked() { this->close(); }
 
 //check button
 void deposit::on_check_button_clicked() {
@@ -68,8 +64,7 @@ void deposit::on_deposit_button_clicked() {
 
     //ask for a confirmation
     QMessageBox::StandardButton confirmation;
-    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?",
-                                  QMessageBox::Yes | QMessageBox::No);
+    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
 
     if(confirmation == QMessageBox::No) { /*do nothing*/ }
     else if(connect_database()) {
@@ -86,7 +81,7 @@ void deposit::on_deposit_button_clicked() {
         save_deposit_receipt.prepare("INSERT INTO deposit_receipt (customer_id, account_id, amount, who_did_name, who_did_cpf, responsible_staff_id, deposit_day, deposit_receipt_key)"
                                      "VALUES(?,?,?,?,?,?,?,?)");
         save_deposit_receipt.addBindValue(cust_id);
-        save_deposit_receipt.addBindValue(search_customer_id_by_cpf(cust_cpf)); //wrong  need to get account id
+        save_deposit_receipt.addBindValue(get_acc_id(search_customer_id_by_cpf(cust_cpf)));
         save_deposit_receipt.addBindValue(value);
         save_deposit_receipt.addBindValue(ui->depositor_name_input->text());
         save_deposit_receipt.addBindValue(ui->depositor_cpf_input->text());
@@ -119,14 +114,14 @@ void deposit::on_deposit_button_clicked() {
         QTextDocument receipt;
         receipt.setHtml("<pre><h1>   Gomes Bank System</h1>                Deposit receipt<br>"
                         "<br>- - - - - - - - - - - - - - - - - - - - - -<br>"
-                        "From:"
+                        "FROM"
                         "<p>Name:  "+ui->depositor_name_input->text()+"</p>"
                         "<p>CPF:   "+ui->depositor_cpf_input->text()+"</p>"
                         "- - - - - - - - - - - - - - - - - - - - - -<br>"
-                        "To:"
+                        "TO"
                         "<p>Name:    "+ui->name_output->text()+"</p>"
                         "<p>CPF:     "+ui->cpf_output->text()+"</p>"
-                        "<p>Acount:  "+ui->account_output->text()+"</p>"
+                        "<p>Account:  "+ui->account_output->text()+"</p>"
                         "<p>Amount:  R$ "+ui->value_input->text()+"</p>"
                         "<p>Date:    "+deposit_time+"</p>"
                         "<p>Responsible Staff:  "+connected_staff+"</p>"
@@ -162,10 +157,6 @@ void deposit::on_depositor_cpf_input_textChanged() {
     deposit::on_favoured_account_input_textChanged();
 }
 
-void deposit::on_depositor_name_input_textChanged() {
-    ui->error_message->setText("");
-}
+void deposit::on_depositor_name_input_textChanged() { ui->error_message->setText(""); }
 
-void deposit::on_value_input_textChanged() {
-    ui->error_message->setText("");
-}
+void deposit::on_value_input_textChanged()          { ui->error_message->setText(""); }

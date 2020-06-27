@@ -77,18 +77,9 @@ void search_customer_account::on_search_button_clicked() {
                     break;
                 }
             }
-            ui->account_output->setText(get_acc_number(typed_cpf)); //show account number
-
-            //customer info
-            QSqlQuery count_blocked_times;
-            count_blocked_times.prepare("SELECT times FROM many_times_customer_account_blocked WHERE customer_id = ?");
-            count_blocked_times.addBindValue(found_cus_acc_id.toInt());
-            count_blocked_times.exec();
-
-            while(count_blocked_times.next()) {
-                QString times = count_blocked_times.value(0).toString();
-                ui->blocked_times_output->setText(times);
-            }
+            ui->account_output->setText(get_acc_number(typed_cpf));   //show account number
+            int a = how_many_times_blocked(found_cus_acc_id.toInt()); //convert the cpf to int, get how many times was...
+            ui->blocked_times_output->setText(QString::number(a));    //convert to string
 
             //if the staff wasn't blocked yet put 0
             if(ui->blocked_times_output->text() == "") { ui->blocked_times_output->setText("0"); }

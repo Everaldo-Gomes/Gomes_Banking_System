@@ -103,7 +103,7 @@ void withdrawal::on_withdrawal_button_clicked() {
                     receipt.setHtml("<pre><h1>   Gomes Bank System</h1>             Withdrawal receipt<br>"
                                     "<p>Name:  "+name+"</p>"
                                     "<p>CPF:   "+cpf+"</p>"
-                                    "<p>Account:  "+account+"</p>"
+                                    "<p>Account:  "+ui->account_input->text()+"</p>"
                                     "<p>Amount:  R$ "+ui->value_input->text()+"</p>"
                                     "<p>Date:    "+wirthdrawal_time+"</p>"
                                     "<p>Responsible Staff:  "+connected_staff+"</p>"

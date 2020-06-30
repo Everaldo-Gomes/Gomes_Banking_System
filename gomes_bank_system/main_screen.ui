@@ -54,7 +54,7 @@
        <cursorShape>ArrowCursor</cursorShape>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="GBS">
        <attribute name="title">
@@ -499,6 +499,37 @@ color: black</string>
         </property>
         <property name="text">
          <string>Block</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <widget class="QPushButton" name="pay_loan_button">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Loan</string>
         </property>
        </widget>
       </widget>

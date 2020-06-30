@@ -10,7 +10,8 @@ main_screen::main_screen(QWidget *parent) : QWidget(parent), ui(new Ui::main_scr
     ui->tabWidget->setTabText(2, "Staff");
     ui->tabWidget->setTabText(3, "Money");
     ui->tabWidget->setTabText(4, "Customer - Account");
-    ui->tabWidget->setTabText(5, "Help");
+    ui->tabWidget->setTabText(5, "Pay");
+    ui->tabWidget->setTabText(6, "Help");
 
     //info about the connected staff
     ui->connected_staff_id_value->setText(connected_id);
@@ -115,6 +116,12 @@ void main_screen::on_transfer_button_clicked() {
 void main_screen::on_loan_button_clicked() {
     loan *l = new loan;
     l->show();
+}
+
+//pay loan button
+void main_screen::on_pay_loan_button_clicked() {
+    pay_loan *pl = new pay_loan;
+    pl->show();
 }
 
 //open about window

@@ -22,6 +22,7 @@
 #include "withdrawal.h"
 #include "transfer.h"
 #include "loan.h"
+#include "pay_loan.h"
 #include "support.h"
 #include "about.h"
 
@@ -73,6 +74,8 @@ private slots:
     void on_transfer_button_clicked();
 
     void on_loan_button_clicked();
+
+    void on_pay_loan_button_clicked();
 
 private:
     Ui::main_screen *ui;

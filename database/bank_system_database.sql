@@ -192,3 +192,68 @@ create table deposit_receipt (
        constraint fk_acc_id foreign key(account_id) references account(id),
        constraint fk_responsible_staff foreign key(responsible_staff_id) references staff(id)
 );
+
+--withdrawal receipt
+create table withdrawal_receipt (
+       id		    serial,
+       customer_id          integer      not null,
+       account_id           integer      not null,
+       amount 	  	    real         not null,
+       responsible_staff_id integer      not null,
+       withdrawal_day       timestamp 	 not null,
+       deposit_receipt_key  varchar(100) not null,
+       constraint pk_withdrawal_id primary key(id),
+       constraint fk_acc_withdrawal_id foreign key(account_id) references account(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id)
+);
+
+--transfer voucher
+create table transfer_voucher (
+       id		     serial,
+       from_customer_id      integer      not null,
+       from_account_id       integer      not null,
+       amount 	  	     real         not null,
+       to_customer_id        integer      not null,
+       to_account_id         integer      not null,
+       responsible_staff_id  integer      not null,
+       transfer_day          timestamp 	  not null,
+       transfer_voucher_key  varchar(100) not null,
+       constraint pk_transfer_id primary key(id),
+       constraint fk_from_customer_id foreign key(from_customer_id) references customer(id),
+       constraint fk_from_acc__id foreign key(from_account_id) references account(id),
+       constraint fk_to_customer_id foreign key(to_customer_id) references customer(id),
+       constraint fk_to_acc__id foreign key(to_account_id) references account(id),
+       constraint fk_responsible_staff_id foreign key(responsible_staff_id) references staff(id)
+);
+
+--loan receipt
+create table loan_receipt (
+       id                    serial,
+       customer_id	     integer      not null,
+       account_id            integer 	  not null,
+       amount 	  	     real         not null,
+       payment_installments  integer      not null,
+       fees                  real         not null,
+       amount_per_month      real         not null,
+       payday		     integer      not null,
+       loan_date             timestamp    not null,
+       responsible_staff_id  integer      not null,
+       loan_receipt_key      varchar(100) not null,
+       constraint pk_loan_key primary key(loan_receipt_key),
+       constraint fk_customer foreign key(customer_id) references customer(id),
+       constraint fk_account foreign key(account_id) references account(id),       
+       constraint fk_responsible_staff foreign key(responsible_staff_id) references staff(id)
+);
+
+--loan payment control
+create table loan_payment_control (
+       id                      serial,
+       payer_name                varchar(100) not null,
+       payer_cpf                 varchar(11)  not null,
+       loan_receipt_key          varchar(100) not null,
+       payment_installments_paid integer      not null,
+       payment_day 	         timestamp    not null,
+       on_time 		         varchar(3)   not null,
+       constraint pk_loan_control_id primary key(id),
+       constraint fk_loan_receipt foreign key(loan_receipt_key) references loan_receipt(loan_receipt_key)
+);

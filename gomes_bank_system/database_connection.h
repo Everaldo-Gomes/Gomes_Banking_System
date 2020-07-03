@@ -54,6 +54,8 @@ QString get_account_amount(int cus_id); //return the amount
 
 void add_amount(double amount, QString typed_cpf); //add some value in the amount
 
+QString loan_paid_any(QString loan_key);
+
 
 //not related to the database (need to find another place to declare it)
 bool has_decimal_point(QString typed_amount); //check if the number has decimal point

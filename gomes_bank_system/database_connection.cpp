@@ -234,6 +234,16 @@ void add_amount(double amount, QString typed_cpf) {
     add.exec();
 }
 
+QString loan_paid_any(QString loan_key) {
+    QString is_paid = "";
+    QSqlQuery search_payemnt;
+    search_payemnt.exec("SELECT payment_installment_paid FROM loan_payment_control WHERE loan_receipt_key = '"+loan_key+"';");
+    while(search_payemnt.next()) {
+        is_paid = search_payemnt.value(0).toString();
+    }
+    return is_paid;
+}
+
 bool has_decimal_point(QString typed_amount) {
     for(int i = 0; i < typed_amount.length(); i++) {
         if(typed_amount[i] != ".") { continue; }

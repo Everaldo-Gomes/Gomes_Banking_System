@@ -32,6 +32,7 @@ SOURCES += \
     main.cpp \
     login.cpp \
     main_screen.cpp \
+    pay_loan.cpp \
     search_customer_account.cpp \
     search_staff.cpp \
     support.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
     loan.h \
     login.h \
     main_screen.h \
+    pay_loan.h \
     search_customer_account.h \
     search_staff.h \
     support.h \
@@ -76,6 +78,7 @@ FORMS += \
     loan.ui \
     login.ui \
     main_screen.ui \
+    pay_loan.ui \
     search_customer_account.ui \
     search_staff.ui \
     support.ui \

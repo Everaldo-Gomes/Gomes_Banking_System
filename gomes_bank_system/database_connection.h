@@ -42,7 +42,9 @@ int get_acc_id(int cust_id); //return the acount id
 
 void block_customer_acc(QString connected_id, int found_id_int, QString reason_message); //block customer/account and put information into the database
 
-bool customer_blocked(QString typed_cpf); //verify if the customer is blocked
+bool customer_blocked(QString typed_cpf); //verify if the customer is blocked using cpf
+
+bool customer_blocked_acc(QString typed_account); //verify if the customer is blocked using account number
 
 bool blocked_customer_acc_many_times(int blocked_customer_id); //verify if the staff already is in the may_times_customer_account blocked_ database
 

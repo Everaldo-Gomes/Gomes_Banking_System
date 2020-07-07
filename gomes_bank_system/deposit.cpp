@@ -32,28 +32,32 @@ void deposit::on_check_button_clicked() {
     if(typed_name == "" || typed_cpf == "" || typed_account == "" || typed_value == "") { ui->error_message->setText("Enter all needed information"); }
     else if(connect_database()) {
 
-        //get destination information
-        QSqlQuery get_destination_info;
-        get_destination_info.prepare("SELECT ct.full_name, ct.cpf, acc.account_number, ct.id FROM customer ct JOIN account acc ON acc.customer_id = ct.id WHERE acc.account_number = ?");
-        get_destination_info.addBindValue(typed_account);
-        get_destination_info.exec();
+        //if is blocked dont show anything
+        if(customer_blocked_acc(typed_account)) { ui->error_message->setText("Customer/account blocked"); }
+        else {
+            //get destination information
+            QSqlQuery get_destination_info;
+            get_destination_info.prepare("SELECT ct.full_name, ct.cpf, acc.account_number, ct.id FROM customer ct JOIN account acc ON acc.customer_id = ct.id WHERE acc.account_number = ?");
+            get_destination_info.addBindValue(typed_account);
+            get_destination_info.exec();
 
-        while(get_destination_info.next()) {
-            ui->name_output->setText(get_destination_info.value(0).toString());
+            while(get_destination_info.next()) {
+                ui->name_output->setText(get_destination_info.value(0).toString());
 
-            cust_cpf = get_destination_info.value(1).toString();
-            ui->cpf_output->setText(get_destination_info.value(1).toString());
+                cust_cpf = get_destination_info.value(1).toString();
+                ui->cpf_output->setText(get_destination_info.value(1).toString());
 
-            ui->account_output->setText(get_destination_info.value(2).toString());
-            cust_id = get_destination_info.value(3).toInt();
+                ui->account_output->setText(get_destination_info.value(2).toString());
+                cust_id = get_destination_info.value(3).toInt();
 
-            ui->deposit_button->setDisabled(false);
+                ui->deposit_button->setDisabled(false);
+            }
+            //check if found the account
+            if(ui->account_output->text() == "") { ui->error_message->setText("Account was not found"); }
+
+            //check if the value is correct
+            if(!has_decimal_point(typed_value)) { ui->error_message->setText("The value need to have decimal point. Ex: 50.00"); }
         }
-        //check if found the account
-        if(ui->account_output->text() == "") { ui->error_message->setText("Account was not found"); }
-
-        //check if the value is correct
-        if(!has_decimal_point(typed_value)) { ui->error_message->setText("The value need to have decimal point. Ex: 50.00"); }
     }
     else { ui->error_message->setText("You're not connected"); }
     close_connection_database();

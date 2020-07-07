@@ -193,6 +193,21 @@ bool customer_blocked(QString typed_cpf) {
     return is_blocked;
 }
 
+bool customer_blocked_acc(QString typed_account) {
+
+    //get the cpf using account number
+    QSqlQuery get_cpf;
+    get_cpf.prepare("SELECT ct.cpf FROM customer ct JOIN account acc ON acc.customer_id = ct.id WHERE acc.account_number = ?");
+    get_cpf.addBindValue(typed_account.toInt());
+    get_cpf.exec();
+
+    QString found_cpf;
+    while(get_cpf.next()) { found_cpf = get_cpf.value(0).toString(); }
+
+    //function that checks if the customer is blocked by using the cpf
+    return customer_blocked(found_cpf);
+}
+
 int how_many_times_customer_acc_blocked(int customer_id) {
     QSqlQuery get_value;
     get_value.prepare("SELECT times FROM many_times_customer_account_blocked WHERE customer_id = ?");

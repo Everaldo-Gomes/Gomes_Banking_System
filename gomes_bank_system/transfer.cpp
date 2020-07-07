@@ -43,8 +43,12 @@ void transfer::on_transfer_button_clicked() {
             int to_account    = ui->account_to_input->text().toInt();
             bool from_inf = false, to_inf = false, from_acc_exist = false, to_acc_exist = false;
 
+            //if either from or to account are blocked denie the operation
+            if(customer_blocked(from_cpf)) { ui->status_message->setText("FROM: Customer/account blocked"); }
+            else if(customer_blocked(to_cpf)) { ui->status_message->setText("TO: Customer/account blocked"); }
+
             //preventing from transfer to the same customer. Ex From A to A
-            if(from_cpf == to_cpf) { ui->status_message->setText("Cannot transfer to the same account"); }
+            else if(from_cpf == to_cpf) { ui->status_message->setText("Cannot transfer to the same account"); }
             else {
                 Login *l = new Login();
                 QString encrypted_password = l->encrypt_password(ui->password_input->text());

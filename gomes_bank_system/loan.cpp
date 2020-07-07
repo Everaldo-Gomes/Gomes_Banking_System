@@ -94,8 +94,11 @@ void loan::on_check_button_clicked() {
         ui->error_message->setText("Enter all needed information");
         ui->loan_button->setDisabled(true);
     }
+    //if the customer/account is blocked denied the operation
+    else if(customer_blocked(typed_cpf)) { ui->error_message->setText("Customer/account blocked"); }
+
     //verify the values
-    if(requested_amount.toDouble() < 1000) { ui->error_message->setText("The minimum value is 1000.00"); }
+    else if(requested_amount.toDouble() < 1000) { ui->error_message->setText("The minimum value is 1000.00"); }
     else if(payment_installments.toInt() <= 0 || payday.toInt() <= 0 ) {
         ui->error_message->setText("You cannot enter 0");
         ui->loan_button->setDisabled(true);

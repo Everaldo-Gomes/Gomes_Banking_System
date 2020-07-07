@@ -26,33 +26,37 @@ void check_balance::on_cpf_field_input_textChanged() {
 void check_balance::on_search_button_clicked() {
     QString typed_cpf = ui->cpf_field_input->text();
 
-    if(typed_cpf == "") { ui->error_message->setText("Enter a valid CPF."); }
+    if(typed_cpf == "") { ui->error_message->setText("Enter a valid CPF"); }
     else if(connect_database()) {
         if(!search_customer_cpf(typed_cpf)) {
 
-            //show information
-            QSqlQuery get_info;
-            get_info.exec("SELECT * FROM customer");
+            //if is blocked dont show anything
+            if(customer_blocked(typed_cpf)) { ui->error_message->setText("Customer blocked"); }
+            else {
+                //show information
+                QSqlQuery get_info;
+                get_info.exec("SELECT * FROM customer");
 
-            while(get_info.next()) {
-                QString found_name = get_info.value(1).toString();
-                QString found_cpf  = get_info.value(2).toString();
+                while(get_info.next()) {
+                    QString found_name = get_info.value(1).toString();
+                    QString found_cpf  = get_info.value(2).toString();
 
-                if(typed_cpf == found_cpf) {
-                    ui->name_output->setText(found_name);
-                    ui->cpf_output->setText(found_cpf);
-                    ui->account_output->setText(get_acc_number(typed_cpf));
+                    if(typed_cpf == found_cpf) {
+                        ui->name_output->setText(found_name);
+                        ui->cpf_output->setText(found_cpf);
+                        ui->account_output->setText(get_acc_number(typed_cpf));
 
-                    //verify if the amount has decimal points
-                    QString found_amount = get_account_amount(search_customer_id_by_cpf(typed_cpf));
+                        //verify if the amount has decimal points
+                        QString found_amount = get_account_amount(search_customer_id_by_cpf(typed_cpf));
 
-                    if(!has_decimal_point(found_amount)) { ui->amount_output->setText("R$ " + found_amount + ".00"); }
-                    else { ui->amount_output->setText("R$ " + found_amount); }
+                        if(!has_decimal_point(found_amount)) { ui->amount_output->setText("R$ " + found_amount + ".00"); }
+                        else { ui->amount_output->setText("R$ " + found_amount); }
 
-                    break;
+                        break;
+                    }
                 }
+                ui->account_output->setText(get_acc_number(typed_cpf)); //show account number
             }
-            ui->account_output->setText(get_acc_number(typed_cpf)); //show account number
         }
         else { ui->error_message->setText("CPF is not registerd"); }
     }

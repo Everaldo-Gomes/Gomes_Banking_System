@@ -167,8 +167,6 @@ void loan::on_loan_button_clicked() {
             save_loan_receipt.addBindValue(loan_time);
             save_loan_receipt.addBindValue(connected_id);
 
-            qDebug() << custo_id << get_acc_id(custo_id) << ui->payment_installments_input->text().toInt() << fees.toDouble() << final_value << payday << loan_time << connected_id;
-
             //generate receipt key   AC =account, LO = loan
             int last_id;
             QSqlQuery get_last_id;

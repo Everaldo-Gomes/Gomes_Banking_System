@@ -40,6 +40,12 @@ void main_screen::on_search_customer_account_button_clicked() {
     sca->show();
 }
 
+//search loan button
+void main_screen::on_search_loan_button_clicked() {
+    search_loan *sl = new search_loan;
+    sl->show();
+}
+
 //open add staff window
 void main_screen::on_add_staff_button_clicked() {
     add_staff *af = new add_staff();

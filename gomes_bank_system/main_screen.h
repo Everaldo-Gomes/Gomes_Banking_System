@@ -9,6 +9,7 @@
 #include "login.h"
 #include "search_staff.h"
 #include "search_customer_account.h"
+#include "search_loan.h"
 #include "add_staff.h"
 #include "block_staff.h"
 #include "unlock_staff.h"
@@ -76,6 +77,8 @@ private slots:
     void on_loan_button_clicked();
 
     void on_pay_loan_button_clicked();
+
+    void on_search_loan_button_clicked();
 
 private:
     Ui::main_screen *ui;

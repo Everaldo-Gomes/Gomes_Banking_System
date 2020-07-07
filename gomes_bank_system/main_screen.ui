@@ -54,7 +54,7 @@
        <cursorShape>ArrowCursor</cursorShape>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="GBS">
        <attribute name="title">
@@ -141,6 +141,32 @@ color: black</string>
         </property>
         <property name="text">
          <string>Staff</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="search_loan_button">
+        <property name="geometry">
+         <rect>
+          <x>254</x>
+          <y>15</y>
+          <width>81</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> background-color: orange;
+ border-style: solid;
+color: black</string>
+        </property>
+        <property name="text">
+         <string>Loan</string>
         </property>
        </widget>
       </widget>

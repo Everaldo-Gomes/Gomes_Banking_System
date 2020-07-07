@@ -46,7 +46,7 @@ bool customer_blocked(QString typed_cpf); //verify if the customer is blocked us
 
 bool customer_blocked_acc(QString typed_account); //verify if the customer is blocked using account number
 
-bool blocked_customer_acc_many_times(int blocked_customer_id); //verify if the staff already is in the may_times_customer_account blocked_ database
+bool blocked_customer_acc_many_times(int blocked_customer_id); //verify if the customer already is in the may_times_customer_account blocked_ database
 
 int how_many_times_customer_acc_blocked(int customer_id); //return how many times the customer/account was blocked
 

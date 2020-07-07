@@ -78,11 +78,8 @@ void search_customer_account::on_search_button_clicked() {
                 }
             }
             ui->account_output->setText(get_acc_number(typed_cpf));   //show account number
-            int a = how_many_times_blocked(found_cus_acc_id.toInt()); //convert the cpf to int, get how many times was...
+            int a = how_many_times_customer_acc_blocked(found_cus_acc_id.toInt()); //convert the cpf to int, get how many times was...
             ui->blocked_times_output->setText(QString::number(a));    //convert to string
-
-            //if the staff wasn't blocked yet put 0
-            if(ui->blocked_times_output->text() == "") { ui->blocked_times_output->setText("0"); }
         }
         else { ui->error_message->setText("CPF is not registerd"); }
     }

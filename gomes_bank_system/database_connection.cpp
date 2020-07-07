@@ -214,7 +214,7 @@ int how_many_times_customer_acc_blocked(int customer_id) {
     get_value.addBindValue(customer_id);
     get_value.exec();
 
-    int count;
+    int count = 0;
     while(get_value.next()) { count = get_value.value(0).toInt(); }
     return count;
 }

@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QMenuBar>
+#include <QComboBox>
+#include <QMessageBox>
 #include <QDebug>
 
 #include <global_variables.h>

@@ -3,6 +3,7 @@
 
 main_screen::main_screen(QWidget *parent) : QWidget(parent), ui(new Ui::main_screen) {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::WindowMinimizeButtonHint); //only show minimize button
 
     //tabs names
     ui->tabWidget->setTabText(0, "GBS");
@@ -23,9 +24,17 @@ main_screen::~main_screen() { delete ui; }
 
 //logout button
 void main_screen::on_logoutbutton_clicked() {
-    this->close();
-    Login *l = new Login();
-    l->show(); //show login screen
+
+    //ask for a confirmation
+    QMessageBox::StandardButton confirmation;
+    confirmation = QMessageBox::question(this, "Confirm", "Are you sure?", QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmation == QMessageBox::No) { /*do nothing*/ }
+    else {
+        this->close();
+        Login *l = new Login();
+        l->show(); //show login screen
+    }
 }
 
 //open search staff window

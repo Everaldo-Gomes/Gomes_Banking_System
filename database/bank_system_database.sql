@@ -11,8 +11,12 @@ create table staff (
       password 	   varchar(100)	not null,
       created_in   timestamp 	not null,
       by_staff	   integer	not null,
-      constraint pk_id primary key(id),
+      constraint pk_id primary key(id)
 );
+
+--default staff
+insert into staff values (0, 'default', '000', 'default_address', '000', '10-10-2000', 'default_email', 'default_sector', '000', '2020-10-10 08:02:01', 0);
+
 
 --support
 create table support (

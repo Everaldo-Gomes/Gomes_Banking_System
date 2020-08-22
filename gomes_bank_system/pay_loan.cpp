@@ -127,7 +127,7 @@ void pay_loan::on_pay_button_clicked() {
 
                 //save into loan payment control
                 QSqlQuery control;
-                control.prepare("INSERT INTO loan_payment_control (payer_name, payer_cpf, loan_receipt_key, payment_installment_paid, payment_day, on_time)"
+                control.prepare("INSERT INTO loan_payment_control (payer_name, payer_cpf, loan_receipt_key, payment_installments_paid, payment_day, on_time)"
                 "VALUES(?,?,?,?,?,?);");
                 control.addBindValue(ui->payer_name_input->text());
                 control.addBindValue(ui->payer_cpf_input->text());

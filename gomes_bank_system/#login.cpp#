@@ -37,9 +37,7 @@ void Login::on_login_button_clicked() {
     else if(typed_cpf == "" && typed_pw == "") { ui->error_message->setText("Enter a CPF and a password"); }
     else {
 
-      QString encrypted_password = typed_pw;
-      if(typed_cpf == "000" && typed_pw == "000") { /*default staff */}
-      else { encrypted_password = this->encrypt_password(typed_pw); }
+        QString encrypted_password = this->encrypt_password(typed_pw);
 
         if(connect_database()) {
 

@@ -101,7 +101,7 @@ void search_loan::on_loan_list_box_currentIndexChanged() {
 
         //other information on the big white filed "table"
         QSqlQuery get_info2;
-        get_info2.exec("SELECT payer_name as Name, payer_cpf as CPF, loan_receipt_key as receipt_key, payment_installment_paid as Qnt_Paid, payment_day as Date, on_time  FROM loan_payment_control WHERE  loan_receipt_key = '"+get_selected_key+"';");
+        get_info2.exec("SELECT payer_name as Name, payer_cpf as CPF, loan_receipt_key as receipt_key, payment_installments_paid as Qnt_Paid, payment_day as Date, on_time  FROM loan_payment_control WHERE  loan_receipt_key = '"+get_selected_key+"';");
 
         QSqlQueryModel *model = new QSqlQueryModel();
         model->setQuery(get_info2);
